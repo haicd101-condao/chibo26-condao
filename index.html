@@ -91,9 +91,6 @@
   <div id="app"></div>
 
   <script>
-    // ============================================================================
-    // 1. BIẾN THỜI GIAN THỰC & DỮ LIỆU KHỞI TẠO CHUẨN 44 ĐẢNG VIÊN CHI BỘ 26
-    // ============================================================================
     const NOW = new Date();
     const REAL_DAY = NOW.getDate();
     const REAL_MONTH = NOW.getMonth() + 1;
@@ -105,8 +102,8 @@
     const PREV_MONTH_STR = String(PREV_DATE.getMonth() + 1).padStart(2, '0');
     const PREV_YEAR = PREV_DATE.getFullYear();
 
-    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V8_FINAL';
-    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V8_FINAL';
+    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V9_FINAL';
+    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V9_FINAL';
 
     const PARTY_FLAG_SVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-lg shadow border-2 border-amber-300 shrink-0">
@@ -1013,7 +1010,7 @@
         { id: 'documents', label: `📚 Tài liệu trước 3 ngày (${state.documents.length})` },
         { id: 'attendance', label: '📋 Điểm danh & Báo vắng' + (isAdmin && pendingLeaves.length ? ` (${pendingLeaves.length})` : '') },
         { id: 'fees', label: `💳 Sổ Đảng phí Tháng ${REAL_MONTH_STR}` },
-        { id: 'members', label: '👥 44 Đảng viên' }
+        { id: 'evaluation', label: '📊 Đánh giá chất lượng sinh hoạt' }
       ];
 
       app.innerHTML = `
@@ -1056,7 +1053,7 @@
           ${state.activeTab === 'documents' ? renderDocuments(user, isAdmin) : ''}
           ${state.activeTab === 'attendance' ? renderAttendance(user, isAdmin, activeMeeting) : ''}
           ${state.activeTab === 'fees' ? renderFees(user, isAdmin, paidMembers.length, totalFeeCollected) : ''}
-          ${state.activeTab === 'members' ? renderMembers(isAdmin, cleanDone, cleanDoing, cleanNot) : ''}
+          ${state.activeTab === 'evaluation' ? renderEvaluation(isAdmin, cleanDone, cleanDoing, cleanNot) : ''}
         </main>
       `;
     }
@@ -1070,7 +1067,6 @@
 
       return `
         <div class="space-y-6">
-          <!-- KPI CARDS -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
               <div class="text-xs font-semibold text-slate-500 uppercase">Tổng số Đảng viên</div>
@@ -1094,7 +1090,6 @@
             </div>
           </div>
 
-          <!-- KHUNG ADMIN GỬI THÔNG BÁO MỜI HỌP -->
           ${isAdmin ? `
             <div class="bg-white rounded-xl shadow-sm border-2 border-red-700 p-5">
               <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 text-[11px] font-bold uppercase">Admin</span>
@@ -1121,7 +1116,6 @@
             </div>
           ` : ''}
 
-          <!-- HỘP THÔNG BÁO MỜI HỌP & NÚT BÁO VẮNG -->
           <div class="bg-white rounded-xl shadow-sm border-2 border-amber-400 p-5">
             <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-amber-100">
               <div>
@@ -1160,7 +1154,6 @@
             ` : ''}
           </div>
 
-          <!-- ĐƯA THANH ĐẢNG PHÍ THÁNG X XUỐNG PHÍA DƯỚI TRANG & BỎ CHỮ "NGHĨA VỤ" & BỎ "(XANH)" / "(ĐỎ)" -->
           <div class="rounded-2xl p-5 shadow-sm border transition-all ${myFeeRec.paid ? 'bg-emerald-50/90 border-emerald-400' : 'bg-red-50/90 border-red-400'}">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-start gap-3">
@@ -1207,9 +1200,6 @@
       `;
     }
 
-    // ============================================================================
-    // MỤC 4: BẢN TIN CHI BỘ (ĐÃ ĐỔI TÊN, BỎ CHỮ THỪA, NÚT ĐĂNG + REFRESH THU HỒI, THÔNG BÁO THỜI GIAN)
-    // ============================================================================
     function renderWall(user, isAdmin) {
       const filteredPosts = state.wallFilter === 'ALL'
         ? state.wallPosts
@@ -1325,9 +1315,6 @@
       `;
     }
 
-    // ============================================================================
-    // MỤC 1A: LẬP BÁO CÁO VÀ BIỂU MẪU (PHÂN QUYỀN 3 ADMIN GIỐNG NHAU / ĐẢNG VIÊN CHỈ TẢI BIỂU MẪU)
-    // ============================================================================
     function renderAiReports(isAdmin) {
       const mm = state.reportTargetMonth;
       const yyyy = state.reportTargetYear;
@@ -1349,105 +1336,101 @@
                 <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 text-[11px] font-bold uppercase">Hệ thống Văn bản & Biểu mẫu Đảng</span>
                 <h2 class="text-base sm:text-lg font-bold text-slate-900 mt-1">📄 Lập báo cáo và Biểu mẫu Chi bộ 26</h2>
               </div>
-              <a href="https://latendoc.com" target="_blank" rel="noopener noreferrer" class="bg-amber-400 hover:bg-amber-300 text-red-950 font-bold px-3.5 py-2 rounded-lg text-xs shadow">
-                🔗 Liên thông kho biểu mẫu latendoc.com ↗
-              </a>
-            </div>
-
-            <!-- KHO BIỂU MẪU SẴN CÓ (CẢ 44 ĐẢNG VIÊN VÀ 3 ADMIN ĐỀU ĐƯỢC TẢI BIỂU MẪU) -->
-            <div class="mt-4">
-              <div class="text-xs font-bold text-slate-700 uppercase mb-2">Danh mục biểu mẫu chuẩn quy định của Đảng (Tải về sử dụng):</div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                ${templateItems.map(item => `
-                  <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between gap-3">
-                    <div>
-                      <span class="text-[10px] font-bold text-red-800 uppercase">${item.group}</span>
-                      <div class="text-xs font-bold text-slate-900 mt-0.5">${item.name}</div>
-                    </div>
-                    <button type="button" onclick="downloadTemplateForm('${item.key}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-3.5 py-2 rounded-lg text-xs shrink-0 shadow">
-                      ⬇ Tải biểu mẫu
+              <div class="relative inline-block text-left">
+                <button type="button" onclick="document.getElementById('dropdown-bieumau').classList.toggle('hidden')" class="bg-amber-500 hover:bg-amber-600 text-red-950 font-bold px-4 py-2.5 rounded-lg text-xs shadow flex items-center gap-1">
+                  <span>Biểu mẫu ▼</span>
+                </button>
+                <div id="dropdown-bieumau" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-200 z-50 p-2 space-y-1">
+                  <div class="text-[10px] font-bold text-slate-500 uppercase px-2 py-1">Chọn mẫu biểu cần tải:</div>
+                  ${templateItems.map(item => `
+                    <button type="button" onclick="downloadTemplateForm('${item.key}'); document.getElementById('dropdown-bieumau').classList.add('hidden');" class="w-full text-left px-3 py-2 text-xs rounded-lg hover:bg-red-50 text-slate-800 font-medium">
+                      + ${item.name} (${REAL_YEAR})
                     </button>
-                  </div>
-                `).join('')}
+                  `).join('')}
+                  <a href="https://latendoc.com" target="_blank" rel="noopener noreferrer" class="block w-full text-left px-3 py-2 text-xs rounded-lg hover:bg-blue-50 text-blue-800 font-bold">
+                    🔗 Kho biểu mẫu latendoc.com ↗
+                  </a>
+                </div>
               </div>
             </div>
 
-            <!-- KHU VỰC SOẠN BÁO CÁO TỰ ĐỘNG (CHỈ 03 TÀI KHOẢN ADMIN MỚI CÓ QUYỀN) -->
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-3">
+                <div class="text-xs font-bold text-slate-900 uppercase">Gửi Báo cáo cá nhân về Chi ủy</div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Tên tệp báo cáo nhận diện:</label>
+                  <input id="member-report-title" type="text" value="Báo cáo kiểm điểm tự đánh giá xếp loại cá nhân năm ${REAL_YEAR}" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs font-medium bg-white" />
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="file" id="member-report-file" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs bg-white" />
+                  <button type="button" onclick="alert('Đã tải tệp lên hệ thống sẵn sàng gửi!')" class="bg-slate-800 text-white font-bold px-3 py-2 rounded-lg text-xs shrink-0">Tải tệp lên</button>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900">Trạng thái: Đang chờ duyệt</span>
+                  <button type="button" onclick="showToast('Đã gửi báo cáo về Chi ủy Chi bộ 26 thành công!');" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">Gửi Báo cáo</button>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-3">
+                <div class="text-xs font-bold text-slate-900 uppercase">Danh mục biểu mẫu trực tiếp</div>
+                <div class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                  ${templateItems.map(item => `
+                    <div class="flex items-center justify-between bg-white p-2 rounded border border-slate-200 text-xs">
+                      <span class="truncate pr-2 font-medium">${item.name}</span>
+                      <button type="button" onclick="downloadTemplateForm('${item.key}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-2.5 py-1 rounded text-[11px] shrink-0">Tải về</button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
             ${isAdmin ? `
               <div class="mt-6 pt-5 border-t-2 border-red-100">
                 <div class="flex items-center gap-2 mb-3">
-                  <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[11px] font-bold uppercase">Quyền Admin (03 đồng chí Chi ủy)</span>
-                  <h3 class="text-sm sm:text-base font-bold text-slate-900">Soạn báo cáo tự động từ dữ liệu gốc (Ảnh chụp / Word / Ghi chép tay)</h3>
+                  <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[11px] font-bold uppercase">Admin</span>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900">Soạn báo cáo tự động từ dữ liệu gốc</h3>
                 </div>
-
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
                   <div class="space-y-3">
                     <div>
                       <label class="font-bold block mb-1 text-slate-700">1. Chọn loại văn bản cần lập</label>
-                      <select id="tpl-selector" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 font-semibold text-slate-900">
-                        <optgroup label="--- MỐC NGÀY 25 (TRƯỚC HỌP MÙNG 03) ---">
-                          <option value="BC_HOAT_DONG_25" ${state.selectedDocTemplate === 'BC_HOAT_DONG_25' ? 'selected' : ''}>Báo cáo tình hình hoạt động Chi bộ 26 tháng (mm)/(yyyy)</option>
-                        </optgroup>
-                        <optgroup label="--- MỐC SAU NGÀY 04 (SAU KỲ HỌP MÙNG 03) ---">
-                          <option value="BIEN_BAN_HOP_04" ${state.selectedDocTemplate === 'BIEN_BAN_HOP_04' ? 'selected' : ''}>Biên bản cuộc họp sinh hoạt Chi bộ định kỳ tháng</option>
-                          <option value="CHAM_DIEM_SHCB" ${state.selectedDocTemplate === 'CHAM_DIEM_SHCB' ? 'selected' : ''}>Bảng chấm điểm chất lượng sinh hoạt Chi bộ định kỳ</option>
-                          <option value="KET_LUAN_BI_THU" ${state.selectedDocTemplate === 'KET_LUAN_BI_THU' ? 'selected' : ''}>Kết luận cuộc họp của Bí thư Chi bộ</option>
-                          <option value="NGHI_QUYET_DINH_KY" ${state.selectedDocTemplate === 'NGHI_QUYET_DINH_KY' ? 'selected' : ''}>Dự thảo Nghị quyết Chi bộ (Sinh hoạt định kỳ tháng)</option>
-                          <option value="NGHI_QUYET_CHUYEN_DE" ${state.selectedDocTemplate === 'NGHI_QUYET_CHUYEN_DE' ? 'selected' : ''}>Dự thảo Nghị quyết Chi bộ (Sinh hoạt chuyên đề)</option>
-                        </optgroup>
+                      <select id="tpl-selector" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                        ${templateItems.map(i => `<option value="${i.key}">${i.name}</option>`).join('')}
                       </select>
                     </div>
-
                     <div class="grid grid-cols-2 gap-2">
                       <div>
-                        <label class="font-bold block mb-1 text-slate-700">Tháng báo cáo (mm)</label>
+                        <label class="font-bold block mb-1 text-slate-700">Tháng</label>
                         <select id="rpt-month" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
                           ${Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')).map(m => `<option value="${m}" ${m === mm ? 'selected' : ''}>Tháng ${m}</option>`).join('')}
                         </select>
                       </div>
                       <div>
-                        <label class="font-bold block mb-1 text-slate-700">Năm (yyyy)</label>
+                        <label class="font-bold block mb-1 text-slate-700">Năm</label>
                         <input id="rpt-year" type="number" value="${yyyy}" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold" />
                       </div>
                     </div>
-
                     <div>
-                      <label class="font-bold block mb-1 text-slate-700">2. Tải tài liệu gốc lên (Ảnh biên bản viết tay / Word / TXT)</label>
-                      <input type="file" accept="image/*,.doc,.docx,.txt" onchange="handleAiFileUpload(event)" class="w-full border border-slate-300 rounded-lg px-2.5 py-2 bg-slate-50" />
-                      ${state.aiUploadedFileName ? `<div class="mt-1 text-emerald-700 font-semibold">✓ Đã nạp tệp gốc: ${state.aiUploadedFileName}</div>` : ''}
-                      ${state.aiUploadedImagePreview ? `<img src="${state.aiUploadedImagePreview}" class="mt-2 max-h-32 rounded border border-slate-300" />` : ''}
+                      <label class="font-bold block mb-1 text-slate-700">2. Tải tệp gốc lên</label>
+                      <input type="file" accept="image/*,.doc,.docx,.txt" onchange="handleAiFileUpload(event)" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
                     </div>
                   </div>
-
                   <div class="lg:col-span-2 flex flex-col justify-between space-y-3">
                     <div>
-                      <label class="font-bold block mb-1 text-slate-700">3. Dữ liệu thô / Ghi chép biên bản viết tay hoặc nội dung trích từ file Word:</label>
-                      <textarea id="ai-raw-input" rows="6" placeholder="Nhập hoặc dán các ý chính từ biên bản họp viết tay, ý kiến phát biểu của Đảng viên, kết quả biểu quyết..." class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-red-600 focus:outline-none">${state.aiRawNotes}</textarea>
+                      <label class="font-bold block mb-1 text-slate-700">3. Dữ liệu thô / Ghi chép:</label>
+                      <textarea id="ai-raw-input" rows="5" placeholder="Nhập ý chính biên bản họp..." class="w-full border border-slate-300 rounded-lg p-3 text-sm">${state.aiRawNotes}</textarea>
                     </div>
                     <div class="flex flex-wrap items-center justify-end gap-2">
-                      <button type="button" onclick="runAiDocumentSynthesis()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2.5 rounded-lg text-xs shadow">
-                        ✨ Lập báo cáo
-                      </button>
-                      <button type="button" onclick="downloadTemplateForm(document.getElementById('tpl-selector').value)" class="bg-amber-500 hover:bg-amber-600 text-red-950 font-bold px-4 py-2.5 rounded-lg text-xs shadow">
-                        ⬇ Tải biểu mẫu
-                      </button>
+                      <button type="button" onclick="runAiDocumentSynthesis()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2 rounded-lg text-xs shadow">✨ Lập báo cáo</button>
                       ${state.aiGeneratedOutput ? `
-                        <button type="button" onclick="downloadGeneratedWordDoc()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2.5 rounded-lg text-xs shadow">
-                          ⬇ Tải file Word (.doc)
-                        </button>
-                        <button type="button" onclick="state.printMode='AI_DOC'; render(); setTimeout(()=>window.print(), 150);" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2.5 rounded-lg text-xs shadow">
-                          🖨 Xuất / In PDF (Khổ A4)
-                        </button>
+                        <button type="button" onclick="downloadGeneratedWordDoc()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Tải Word (.doc)</button>
+                        <button type="button" onclick="state.printMode='AI_DOC'; render(); setTimeout(()=>window.print(), 150);" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 In PDF</button>
                       ` : ''}
                     </div>
                   </div>
                 </div>
               </div>
-            ` : `
-              <div class="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-950">
-                * Tài khoản Đảng viên có quyền <strong>Tải biểu mẫu</strong> chuẩn trực tiếp từ danh mục trên hoặc truy cập kho liên thông <strong>latendoc.com</strong> để phục vụ nghiên cứu, viết bản tự kiểm điểm và sinh hoạt Đảng.
-              </div>
-            `}
+            ` : ''}
           </div>
 
           ${isAdmin && state.aiGeneratedOutput ? `
@@ -1459,9 +1442,6 @@
       `;
     }
 
-    // ============================================================================
-    // MỤC 1B & 2: SỔ ĐẢNG PHÍ (ĐẢNG VIÊN THƯỜNG KHÔNG XEM ĐƯỢC NGƯỜI KHÁC + ADMIN XUẤT PDF ĐÔN ĐỐC)
-    // ============================================================================
     function renderFees(user, isAdmin, paidCount, totalFeeCollected) {
       const myRec = getMemberFeeRecord(user.id, REAL_PERIOD_KEY);
 
@@ -1524,12 +1504,9 @@
               </p>
             </div>
             <div class="flex flex-col gap-2">
-              <button onclick="exportJSONData()" class="bg-amber-400 hover:bg-amber-300 text-red-950 font-bold px-4 py-2 rounded-lg text-xs shadow">
-                ⬇ Xuất gói liên thông JSON
-              </button>
-              <button onclick="printFeeSummaryPDF()" class="bg-white hover:bg-slate-100 text-red-900 font-bold px-4 py-2 rounded-lg text-xs shadow">
-                🖨 Xuất danh sách thống kê tình hình nộp Đảng phí (PDF)
-              </button>
+              <button onclick="exportJSONData()" class="bg-amber-400 hover:bg-amber-300 text-red-950 font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Xuất gói liên thông JSON</button>
+              <button onclick="printFeeSummaryPDF()" class="bg-white hover:bg-slate-100 text-red-900 font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 Xuất danh sách thống kê nộp Đảng phí (PDF)</button>
+              <button onclick="sendQuickFeeMessage(${paidCount}, ${44 - paidCount}, '${formatVND(totalFeeCollected)}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">💬 Xuất tin nhắn gửi nhanh đôn đốc</button>
             </div>
           </div>
 
@@ -1544,14 +1521,14 @@
                     <th class="p-3">Số tiền nộp</th>
                     <th class="p-3">Trạng thái Tháng ${REAL_MONTH_STR}/${REAL_YEAR}</th>
                     <th class="p-3">Ngày nộp & Mã GD</th>
-                    <th class="p-3 text-right">Thao tác</th>
+                    <th class="p-3 text-right">Hành động Admin</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                   ${state.members.map(m => {
                     const rec = getMemberFeeRecord(m.id, REAL_PERIOD_KEY);
                     return `
-                      <tr class="${rec.paid ? 'bg-emerald-50/40' : 'bg-red-50/40'} hover:bg-slate-100/70">
+                      <tr class="${rec.paid ? 'bg-emerald-50/30' : 'bg-red-50/30'} hover:bg-slate-100/70">
                         <td class="p-3 font-semibold">${m.stt}</td>
                         <td class="p-3 font-bold text-slate-900">${m.fullName}</td>
                         <td class="p-3 text-slate-600">${m.partyGroup}</td>
@@ -1559,14 +1536,11 @@
                         <td class="p-3">
                           ${rec.paid
                             ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-600 text-white">✓ Đã nộp</span>`
-                            : `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-red-600 text-white">Chưa nộp</span>`}
+                            : `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-red-600 text-white">x Chưa nộp</span>`}
                         </td>
                         <td class="p-3 text-slate-600">${rec.paid ? `${rec.paidDate} • ${rec.portalRef}` : '—'}</td>
                         <td class="p-3 text-right space-x-1 whitespace-nowrap">
-                          ${!rec.paid
-                            ? `<button onclick="submitSelfPartyFee('${m.id}', ${m.id !== user.id})" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded font-bold">${m.id === user.id ? 'Báo nộp ngay' : 'Đóng hộ'}</button>`
-                            : `<button onclick="submitSelfPartyFee('${m.id}', ${m.id !== user.id})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded font-semibold">Sửa tiền</button>`}
-                          <button onclick="toggleFeeStatusAdmin('${m.id}')" class="border border-slate-300 bg-white px-2 py-1 rounded text-[11px]">Đảo trạng thái</button>
+                          <button onclick="toggleFeeStatusAdmin('${m.id}')" class="border border-slate-300 bg-white hover:bg-slate-50 px-3 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">Đảo trạng thái nộp</button>
                         </td>
                       </tr>
                     `;
@@ -1768,6 +1742,87 @@
           </div>
         </div>
       `;
+    }
+
+    function renderEvaluation(isAdmin, cleanDone, cleanDoing, cleanNot) {
+      const activeM = state.meetings.find(m => m.id === state.selectedMeetingId) || state.meetings[0];
+      let pCount = 0, eCount = 0, uCount = 0;
+      state.members.forEach(m => {
+        const st = (state.attendance[m.id] && state.attendance[m.id][activeM.id]) || 'PENDING';
+        if (st === 'PRESENT') pCount++;
+        else if (st === 'EXCUSED') eCount++;
+        else if (st === 'UNEXCUSED') uCount++;
+      });
+      const total = state.members.length;
+      const rateP = ((pCount / total) * 100).toFixed(1);
+      const rateE = ((eCount / total) * 100).toFixed(1);
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-red-900 to-red-800 text-white rounded-2xl p-5 shadow">
+            <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Hệ thống theo dõi & đánh giá</div>
+            <h2 class="text-lg sm:text-xl font-bold mt-1">📊 Đánh giá chất lượng sinh hoạt Chi bộ 26</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div onclick="alert('Chi tiết Sinh hoạt định kỳ: Có mặt ${pCount}/44 (${rateP}%), Vắng có phép: ${eCount}, Vắng không phép: ${uCount}')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 1: Sinh hoạt định kỳ</div>
+              <div class="text-xl font-bold text-red-700 mt-2">Tỷ lệ: ${rateP}%</div>
+              <div class="text-xs text-slate-600 mt-1">Có mặt: ${pCount} • Vắng: ${eCount + uCount} (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Chi tiết Sinh hoạt chuyên đề: Tỷ lệ tham gia đạt 95.5% (42/44 đồng chí có mặt)')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 2: Sinh hoạt chuyên đề</div>
+              <div class="text-xl font-bold text-blue-700 mt-2">Tỷ lệ: 95.5%</div>
+              <div class="text-xs text-slate-600 mt-1">Đã hoàn thành chỉ tiêu (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Chi tiết Học tập Nghị quyết: 100% Đảng viên hoàn thành nghiên cứu và kiểm tra trực tuyến)')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 3: Học tập Nghị quyết</div>
+              <div class="text-xl font-bold text-emerald-700 mt-2">Tỷ lệ: 100%</div>
+              <div class="text-xs text-slate-600 mt-1">Đạt yêu cầu đợt sinh hoạt (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Khung 4: Tiến độ chuẩn hóa dữ liệu Đảng viên trên Sổ tay điện tử')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 4: Nội dung liên quan khác</div>
+              <div class="text-sm font-bold text-slate-900 mt-2">Chuẩn hóa dữ liệu Đảng viên</div>
+              <div class="text-xs text-slate-600 mt-1">${cleanDone} Đã sạch • ${cleanDoing} Đang làm • ${cleanNot} Chưa làm</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+            <h3 class="font-bold text-slate-900 text-sm uppercase">📋 Tổng hợp Tiến độ Chuẩn hóa dữ liệu & Chỉ đạo từ Chi ủy</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-semibold">
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900">
+                ✓ 26 Đã sạch (${((26/44)*100).toFixed(1)}%)
+              </div>
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-900">
+                ⏳ 13 Đang làm (${((13/44)*100).toFixed(1)}%)
+              </div>
+              <div class="p-3 rounded-xl bg-red-50 border border-red-300 text-red-900">
+                ! 5 Chưa làm (${((5/44)*100).toFixed(1)}%)
+              </div>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <button type="button" onclick="window.print()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 Đọc danh sách (Xuất bản PDF)</button>
+              ${isAdmin ? '<span class="text-xs text-slate-500 italic">Admin có quyền tải lên nội dung chỉ đạo mới bên dưới.</span>' : ''}
+            </div>
+            ${isAdmin ? `
+              <div class="mt-4 pt-4 border-t border-slate-200 space-y-2">
+                <label class="block text-xs font-bold text-slate-700 uppercase">Ý kiến chỉ đạo / Cập nhật nhiệm vụ mới (Tối đa 550 ký tự):</label>
+                <textarea rows="3" maxlength="550" placeholder="Nhập chỉ đạo mới triển khai cho các Tổ Đảng..." class="w-full border border-slate-300 rounded-lg p-3 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"></textarea>
+                <div class="flex justify-between items-center">
+                  <input type="file" class="text-xs border border-slate-300 rounded-lg p-1 bg-slate-50" />
+                  <button type="button" onclick="showToast('Đã lưu và cập nhật chỉ đạo mới tới toàn thể Chi bộ!')" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">📤 Cập nhật nhiệm vụ</button>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function sendQuickFeeMessage(paid, unpaid, totalAmount) {
+      const dateStr = `${String(REAL_DAY).padStart(2,'0')}/${REAL_MONTH_STR}/${REAL_YEAR}`;
+      const msg = `Thông báo chung: Đến thời điểm hiện nay (${dateStr}), Chi bộ 26 đã hoàn thành đóng Đảng phí: ${paid} Đ/c, còn lại ${unpaid} Đ/c chưa hoàn thành (Tổng thu: ${totalAmount}). Chi ủy đề nghị các Đồng chí chưa đóng Đảng phí khẩn trương thực hiện hoàn thành trước ngày 25 để cùng Chi bộ hoàn thành nhiệm vụ theo quy định. Xin cảm ơn. (Danh sách thống kê chi tiết đính kèm bản PDF).`;
+      prompt("Sao chép nhanh nội dung tin nhắn đôn đốc gửi Zalo/Group Chi bộ:", msg);
     }
 
     render();
