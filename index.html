@@ -9,7 +9,6 @@
   <meta name="apple-mobile-web-app-title" content="Chi bộ 26" />
   <title>Chi bộ 26 - Đặc khu Côn Đảo</title>
 
-  <!-- ICON LÁ CỜ ĐẢNG (BÚA VÀ LIỀM VÀNG TRÊN NỀN ĐỎ) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23dc2626'/%3E%3Cstop offset='100%25' stop-color='%23991b1b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='96' fill='url(%23g)'/%3E%3Crect x='16' y='16' width='480' height='480' rx='82' fill='none' stroke='%23facc15' stroke-width='16'/%3E%3Cg fill='%23facc15'%3E%3Cpath d='M295 115c68 38 96 124 62 194-26 53-81 84-138 82-25-1-49-8-69-21l24-32c15 9 32 14 50 14 42 1 82-22 101-61 24-50 4-111-45-140l15-36z'/%3E%3Ccircle cx='178' cy='356' r='22'/%3E%3Cpath d='M162 215l52-52 98 98-24 24-98-98-14 14 28 28-24 24-42-42 24-24z'/%3E%3Crect x='232' y='210' width='32' height='165' rx='8' transform='rotate(-45 248 292)'/%3E%3C/g%3E%3C/svg%3E" />
   <link id="apple-touch-icon" rel="apple-touch-icon" href="" />
   <link id="pwa-manifest" rel="manifest" href="" />
@@ -102,8 +101,8 @@
     const PREV_MONTH_STR = String(PREV_DATE.getMonth() + 1).padStart(2, '0');
     const PREV_YEAR = PREV_DATE.getFullYear();
 
-    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V11_FINAL';
-    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V11_FINAL';
+    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V12_FINAL';
+    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V12_FINAL';
 
     const PARTY_FLAG_SVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-lg shadow border-2 border-amber-300 shrink-0">
@@ -195,7 +194,9 @@
             time: '19:00',
             location: 'Nhà văn hóa Khu dân cư số 3 - Đặc khu Côn Đảo',
             selfCheckinOpen: true,
-            agenda: `1. Đánh giá tình hình tư tưởng, kết quả thực hiện Nghị quyết tháng ${PREV_MONTH_STR}/${PREV_YEAR}.\n2. Triển khai nhiệm vụ trọng tâm tháng ${REAL_MONTH_STR}/${REAL_YEAR} và tiến độ chuẩn hóa dữ liệu 44 Đảng viên.\n3. Thu Đảng phí và biểu quyết thông qua Nghị quyết Chi bộ.`
+            agenda: `1. Đánh giá tình hình tư tưởng, kết quả thực hiện Nghị quyết tháng ${PREV_MONTH_STR}/${PREV_YEAR}.
+2. Triển khai nhiệm vụ trọng tâm tháng ${REAL_MONTH_STR}/${REAL_YEAR} và tiến độ chuẩn hóa dữ liệu 44 Đảng viên.
+3. Thu Đảng phí và biểu quyết thông qua Nghị quyết Chi bộ.`
           },
           {
             id: 'CD-CURRENT',
@@ -205,7 +206,8 @@
             time: '19:30',
             location: 'Hội trường Khu dân cư số 3 - Đặc khu Côn Đảo',
             selfCheckinOpen: true,
-            agenda: '1. Quán triệt Nghị quyết mới của Đảng ủy Đặc khu Côn Đảo.\n2. Hướng dẫn sử dụng Sổ tay Đảng viên điện tử và Cổng TTHC Đảng.'
+            agenda: '1. Quán triệt Nghị quyết mới của Đảng ủy Đặc khu Côn Đảo.
+2. Hướng dẫn sử dụng Sổ tay Đảng viên điện tử và Cổng TTHC Đảng.'
           }
         ],
         invitations: [
@@ -226,7 +228,10 @@
             author: 'Nguyễn Anh Tuấn (Bí thư Chi bộ)',
             postedAt: `15/${REAL_MONTH_STR}/${REAL_YEAR} 09:00`,
             summary: 'Đảng ủy Đặc khu Côn Đảo chỉ đạo 100% chi bộ trực thuộc ứng dụng công nghệ thông tin trong quản lý hồ sơ đảng viên, thu nộp đảng phí qua Cổng DVC Quốc gia và chuẩn hóa dữ liệu đảng viên.',
-            content: 'Thực hiện Kế hoạch của Ban Thường vụ Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chi bộ trong tình hình mới, Chi ủy Chi bộ 26 đề nghị toàn thể 44 đồng chí Đảng viên:\n1. Hoàn thành việc rà soát, đối chiếu thông tin cá nhân để đạt tỷ lệ 100% dữ liệu "Đã làm sạch".\n2. Thực hiện nộp Đảng phí định kỳ hằng tháng qua Cổng Dịch vụ công TTHC Đảng và cập nhật trạng thái trên ứng dụng Chi bộ.\n3. Tích cực nghiên cứu các dự thảo báo cáo, nghị quyết được đăng tải trên Bản tin Chi bộ trước mỗi kỳ họp 03 ngày.',
+            content: 'Thực hiện Kế hoạch của Ban Thường vụ Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chi bộ trong tình hình mới, Chi ủy Chi bộ 26 đề nghị toàn thể 44 đồng chí Đảng viên:
+1. Hoàn thành việc rà soát, đối chiếu thông tin cá nhân để đạt tỷ lệ 100% dữ liệu "Đã làm sạch".
+2. Thực hiện nộp Đảng phí định kỳ hằng tháng qua Cổng Dịch vụ công TTHC Đảng và cập nhật trạng thái trên ứng dụng Chi bộ.
+3. Tích cực nghiên cứu các dự thảo báo cáo, nghị quyết được đăng tải trên Bản tin Chi bộ trước mỗi kỳ họp 03 ngày.',
             imageUrl: '',
             attachmentName: 'KeHoach_ChuyenDoiSo_DangUyConDao.txt',
             attachmentDataUrl: '',
@@ -256,7 +261,12 @@
             releaseDate: `25/${PREV_MONTH_STR}/${PREV_YEAR}`,
             uploadedBy: 'Phan Kiều Diễm (Chi ủy viên)',
             summary: 'Tài liệu phục vụ Đảng viên nghiên cứu trước 03 ngày khi họp định kỳ mùng 03 đầu tháng.',
-            contentFull: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26\nDỰ THẢO BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG THÁNG ${PREV_MONTH_STR}/${PREV_YEAR}\n\n1. Công tác chính trị tư tưởng: 44/44 Đảng viên giữ vững lập trường, chấp hành tốt chủ trương của Đảng, pháp luật của Nhà nước.\n2. Công tác xây dựng Đảng: Duy trì nền nếp sinh hoạt định kỳ vào ngày mùng 03 hằng tháng; theo dõi chặt chẽ tiến độ làm sạch dữ liệu Đảng viên.\n3. Công tác Đảng phí: Đôn đốc hoàn thành thu nộp qua Cổng TTHC Đảng đúng quy định.`,
+            contentFull: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26
+DỰ THẢO BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG THÁNG ${PREV_MONTH_STR}/${PREV_YEAR}
+
+1. Công tác chính trị tư tưởng: 44/44 Đảng viên giữ vững lập trường, chấp hành tốt chủ trương của Đảng, pháp luật của Nhà nước.
+2. Công tác xây dựng Đảng: Duy trì nền nếp sinh hoạt định kỳ vào ngày mùng 03 hằng tháng; theo dõi chặt chẽ tiến độ làm sạch dữ liệu Đảng viên.
+3. Công tác Đảng phí: Đôn đốc hoàn thành thu nộp qua Cổng TTHC Đảng đúng quy định.`,
             fileName: `DuThao_BaoCao_Thang_${PREV_MONTH_STR}_${PREV_YEAR}.txt`,
             fileDataUrl: '',
             readBy: ['DV16', 'DV14', 'DV15']
@@ -399,7 +409,8 @@
 
       const defaultAmt = target.monthlyFee || 80000;
       const inputAmt = prompt(
-        `Xác nhận báo nộp Đảng phí tháng ${REAL_PERIOD_KEY} cho Đ/c ${target.fullName}:\nNhập số tiền thực nộp (VNĐ):`,
+        `Xác nhận báo nộp Đảng phí tháng ${REAL_PERIOD_KEY} cho Đ/c ${target.fullName}:
+Nhập số tiền thực nộp (VNĐ):`,
         String(defaultAmt)
       );
       if (inputAmt === null) return;
@@ -595,7 +606,8 @@
         reader.onload = function(ev) {
           state.aiUploadedImagePreview = ev.target.result;
           if (!state.aiRawNotes.trim()) {
-            state.aiRawNotes = `[Đã tải lên ảnh chụp biên bản/tài liệu gốc: ${file.name}]\n- Nội dung trích xuất gợi ý: Cuộc họp Chi bộ 26 thống nhất đánh giá kết quả thực hiện nhiệm vụ tháng qua, biểu quyết thông qua các chỉ tiêu trọng tâm tháng tới với 100% Đảng viên có mặt tán thành.`;
+            state.aiRawNotes = `[Đã tải lên ảnh chụp biên bản/tài liệu gốc: ${file.name}]
+- Nội dung trích xuất gợi ý: Cuộc họp Chi bộ 26 thống nhất đánh giá kết quả thực hiện nhiệm vụ tháng qua, biểu quyết thông qua các chỉ tiêu trọng tâm tháng tới với 100% Đảng viên có mặt tán thành.`;
           }
           render();
           showToast('Đã tiếp nhận ảnh chụp biên bản gốc!');
@@ -605,10 +617,11 @@
         const reader = new FileReader();
         reader.onload = function(ev) {
           const text = ev.target.result;
-          if (text && typeof text === 'string' && !text.includes('\u0000')) {
+          if (text && typeof text === 'string' && !text.includes(' ')) {
             state.aiRawNotes = text.slice(0, 6000);
           } else {
-            state.aiRawNotes = `[Đã tiếp nhận tệp Word/tài liệu gốc: ${file.name}]\n- Dữ liệu gốc đã sẵn sàng để biên soạn chuẩn thể thức văn bản Đảng.`;
+            state.aiRawNotes = `[Đã tiếp nhận tệp Word/tài liệu gốc: ${file.name}]
+- Dữ liệu gốc đã sẵn sàng để biên soạn chuẩn thể thức văn bản Đảng.`;
           }
           state.aiUploadedImagePreview = '';
           render();
@@ -629,25 +642,176 @@
       const cleanNot = state.members.filter(m => m.cleanStatus === 'Chưa làm sạch').length;
 
       const formattedLines = raw
-        ? raw.split('\n').filter(l => l.trim()).map(l => '- ' + l.trim().replace(/^[-+*•]\s*/, '')).join('\n')
+        ? raw.split('
+').filter(l => l.trim()).map(l => '- ' + l.trim().replace(/^[-+*•]\s*/, '')).join('
+')
         : '';
 
       const extraSection = formattedLines
-        ? `\n\n[NỘI DUNG BIÊN SOẠN TỪ DỮ LIỆU GỐC (${state.aiUploadedFileName || 'Ghi chép nhập tay'})]:\n${formattedLines}`
+        ? `
+
+[NỘI DUNG BIÊN SOẠN TỪ DỮ LIỆU GỐC (${state.aiUploadedFileName || 'Ghi chép nhập tay'})]:
+${formattedLines}`
         : '';
 
       const templates = {
-        BC_HOAT_DONG_25: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 25 tháng ${mm} năm ${yyyy}\nSố: ………-BC/CB\n\n                                    BÁO CÁO\n        Tình hình hoạt động của Chi bộ 26 tháng ${mm} năm ${yyyy}\n        (Phục vụ kỳ họp sinh hoạt Chi bộ định kỳ ngày mùng 03 tháng sau)\n\nKính gửi: Ban Thường vụ Đảng ủy Đặc khu Côn Đảo.\n\nThực hiện quy chế làm việc của Chi bộ 26, Chi ủy báo cáo tình hình hoạt động tháng ${mm}/${yyyy} để trình hội nghị Chi bộ định kỳ ngày mùng 03 tháng sau như sau:\n\nI. ĐẶC ĐIỂM TÌNH HÌNH ĐẢNG VIÊN\n- Tổng số Đảng viên của Chi bộ: ${totalMembers} đồng chí (Chính thức: ${officialCount} đồng chí; Dự bị: ${reserveCount} đồng chí - Đ/c Nguyễn Tiến Văn Phái).\n- Cấp ủy Chi bộ gồm 03 đồng chí: Bí thư Nguyễn Anh Tuấn; Phó Bí thư Đoàn Thị Diệu Hiền; Chi ủy viên Phan Kiều Diễm.\n\nII. KẾT QUẢ LÃNH ĐẠO THỰC HIỆN NHIỆM VỤ THÁNG ${mm}/${yyyy}\n1. Công tác chính trị, tư tưởng: Toàn thể Đảng viên chấp hành nghiêm Cương lĩnh, Điều lệ Đảng, Nghị quyết của Đảng ủy Đặc khu Côn Đảo; giữ vững đoàn kết nội bộ tại Khu dân cư số 3.\n2. Công tác thu, nộp Đảng phí: Tính đến ngày 25/${mm}/${yyyy}, đã có ${paidList.length}/${totalMembers} đồng chí hoàn thành nộp Đảng phí qua Cổng TTHC Đảng với tổng số tiền ${formatVND(totalCollected)}.\n3. Công tác chuẩn hóa dữ liệu Đảng viên: Đã làm sạch ${cleanDone}/44 đồng chí (${((cleanDone/44)*100).toFixed(2)}%); đang làm sạch ${cleanDoing}/44 đồng chí; chưa làm sạch ${cleanNot}/44 đồng chí.${extraSection}\n\nIII. PHƯƠNG HƯỚNG, NHIỆM VỤ TRỌNG TÂM THÁNG SAU\n1. Tổ chức tốt buổi sinh hoạt Chi bộ định kỳ vào đúng ngày mùng 03 tháng sau.\n2. Tiếp tục đôn đốc hoàn thành 100% chỉ tiêu thu Đảng phí và làm sạch dữ liệu Đảng viên trên Sổ tay Đảng viên điện tử.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
+        BC_HOAT_DONG_25: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 25 tháng ${mm} năm ${yyyy}
+Số: ………-BC/CB
 
-        BIEN_BAN_HOP_04: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-BB/CB\n\n                            BIÊN BẢN HỌP CHI BỘ\n            Sinh hoạt Chi bộ định kỳ tháng ${mm} năm ${yyyy}\n\nI. THỜI GIAN, ĐỊA ĐIỂM, THÀNH PHẦN THAM DỰ\n1. Thời gian: Vào lúc 19 giờ 00 phút, ngày 03 tháng ${mm} năm ${yyyy}.\n2. Địa điểm: Nhà văn hóa Khu dân cư số 3, Đặc khu Côn Đảo.\n3. Thành phần:\n- Chủ tọa: Đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26.\n- Thư ký: Đồng chí Phan Kiều Diễm – Chi ủy viên.\n- Tổng số Đảng viên triệu tập: ${totalMembers} đồng chí (Chính thức: ${officialCount}; Dự bị: ${reserveCount}).\n- Có mặt: ……… đồng chí; Vắng có phép: ……… đồng chí; Vắng không phép: 0 đồng chí.\n\nII. NỘI DUNG CUỘC HỌP\n1. Đồng chí Bí thư Chi bộ tuyên bố lý do, thông qua chương trình sinh hoạt định kỳ tháng ${mm}/${yyyy} và thông tin tình hình thời sự, văn bản chỉ đạo mới của Đảng ủy Đặc khu Côn Đảo.\n2. Đồng chí Phó Bí thư Đoàn Thị Diệu Hiền trình bày dự thảo Báo cáo tình hình hoạt động của Chi bộ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy}.\n3. Thảo luận của Đảng viên:${extraSection || '\n- Các đồng chí Đảng viên thống nhất cao với dự thảo báo cáo; tập trung thảo luận giải pháp giữ gìn an ninh trật tự, vệ sinh môi trường tại KDC số 3 và hoàn thiện làm sạch dữ liệu Đảng viên.'}\n\nIII. BIỂU QUYẾT THÔNG QUA NGHỊ QUYẾT\n- Số Đảng viên tán thành: ………/${totalMembers} đồng chí (đạt 100% số có mặt).\n- Số không tán thành: 0 đồng chí.\nCuộc họp kết thúc vào lúc 20 giờ 30 phút cùng ngày./.\n\n        THƯ KÝ                                        CHỦ TỌA\n   (Ký, ghi rõ họ tên)                            (Ký, ghi rõ họ tên)\n\n    Phan Kiều Diễm                                 Nguyễn Anh Tuấn`,
+                                    BÁO CÁO
+        Tình hình hoạt động của Chi bộ 26 tháng ${mm} năm ${yyyy}
+        (Phục vụ kỳ họp sinh hoạt Chi bộ định kỳ ngày mùng 03 tháng sau)
 
-        CHAM_DIEM_SHCB: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\n\n                BẢNG TỰ CHẤM ĐIỂM CHẤT LƯỢNG SINH HOẠT CHI BỘ\n                    Kỳ sinh hoạt định kỳ tháng ${mm} năm ${yyyy}\n            (Ban hành kèm theo Hướng dẫn của Ban Tổ chức Trung ương)\n\n| STT | Tiêu chí đánh giá chất lượng sinh hoạt Chi bộ | Điểm tối đa | Chi bộ tự chấm |\n|-----|-----------------------------------------------|-------------|----------------|\n|  1  | Công tác chuẩn bị sinh hoạt (Họp Chi ủy, gửi tài liệu trước 3 ngày) | 15 điểm | 15 điểm |\n|  2  | Tổ chức sinh hoạt đúng ngày mùng 03, tỷ lệ Đảng viên tham dự cao | 15 điểm | 14 điểm |\n|  3  | Nội dung sinh hoạt toàn diện (Chính trị tư tưởng, thực hiện nhiệm vụ) | 25 điểm | 24 điểm |\n|  4  | Thực hiện nguyên tắc tập trung dân chủ, tự phê bình và phê bình | 20 điểm | 19 điểm |\n|  5  | Chất lượng thảo luận, đóng góp ý kiến của Đảng viên tại cuộc họp | 15 điểm | 14 điểm |\n|  6  | Ban hành Nghị quyết, phân công nhiệm vụ và ghi chép Biên bản đầy đủ | 10 điểm | 10 điểm |\n|     | TỔNG CỘNG ĐIỂM ĐẠT ĐƯỢC (Xếp loại: TỐT) | 100 điểm | 96 điểm |\n\nGhi chú bổ sung từ thực tế kỳ họp:${extraSection || '\n- Chi bộ duy trì nghiêm túc việc gửi dự thảo báo cáo trước 3 ngày và điểm danh điện tử.'}\n\n                                                     T/M CHI BỘ 26\n                                                        BÍ THƯ\n                                                   Nguyễn Anh Tuấn`,
+Kính gửi: Ban Thường vụ Đảng ủy Đặc khu Côn Đảo.
 
-        KET_LUAN_BI_THU: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-TB/CB\n\n                                THÔNG BÁO\n        Kết luận của đồng chí Bí thư Chi bộ tại kỳ sinh hoạt tháng ${mm}/${yyyy}\n\nTại kỳ sinh hoạt Chi bộ định kỳ ngày 03/${mm}/${yyyy}, sau khi nghe báo cáo tình hình hoạt động và ý kiến thảo luận của các đồng chí Đảng viên, đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26 kết luận và giao nhiệm vụ như sau:\n\n1. Về công tác chính trị, tư tưởng và tuyên truyền:\n- Giao đồng chí Đoàn Thị Diệu Hiền – Phó Bí thư Chi bộ tiếp tục đăng tải kịp thời các văn bản chỉ đạo của Đảng ủy Đặc khu Côn Đảo lên Bản tin Chi bộ để 44 Đảng viên nghiên cứu, thực hiện.\n\n2. Về công tác quản lý Đảng viên và thu nộp Đảng phí:\n- Giao đồng chí Phan Kiều Diễm – Chi ủy viên theo dõi, đôn đốc ${totalMembers - paidList.length} đồng chí còn lại hoàn thành nộp Đảng phí tháng ${mm}/${yyyy} qua Cổng TTHC Đảng trước ngày 18/${mm}/${yyyy}.\n- Các Tổ trưởng Tổ Đảng 1, 2, 3, 4 trực tiếp hỗ trợ ${cleanNot} đồng chí chưa làm sạch dữ liệu hoàn thành cập nhật hồ sơ.${extraSection}\n\n3. Tổ chức thực hiện:\n- Toàn thể 44 đồng chí Đảng viên nghiêm túc triển khai thực hiện và báo cáo kết quả tại kỳ sinh hoạt tiếp theo./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Toàn thể Đảng viên Chi bộ 26;                          BÍ THƯ\n- Lưu Chi bộ.                                      Nguyễn Anh Tuấn`,
+Thực hiện quy chế làm việc của Chi bộ 26, Chi ủy báo cáo tình hình hoạt động tháng ${mm}/${yyyy} để trình hội nghị Chi bộ định kỳ ngày mùng 03 tháng sau như sau:
 
-        NGHI_QUYET_DINH_KY: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-NQ/CB\n\n                                NGHỊ QUYẾT\n            Lãnh đạo thực hiện nhiệm vụ chính trị tháng ${mm} năm ${yyyy}\n\nCăn cứ Điều lệ Đảng Cộng sản Việt Nam;\nCăn cứ Nghị quyết, Chương trình công tác năm ${yyyy} của Đảng ủy Đặc khu Côn Đảo;\nCăn cứ kết quả hội nghị sinh hoạt Chi bộ 26 ngày 03 tháng ${mm} năm ${yyyy},\n\n                        CHI BỘ 26 QUYẾT NGHỊ:\n\nI. Tán thành đánh giá tình hình thực hiện nhiệm vụ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy} do Chi ủy trình bày tại hội nghị.\nII. Tập trung lãnh đạo thực hiện các chỉ tiêu, nhiệm vụ trọng tâm tháng ${mm}/${yyyy}:\n1. 100% Đảng viên giữ vững phẩm chất chính trị, gương mẫu chấp hành quy định tại nơi cư trú (Khu dân cư số 3).\n2. Phấn đấu 100% Đảng viên hoàn thành nghĩa vụ đóng Đảng phí tháng ${mm}/${yyyy} đúng hạn và cập nhật đầy đủ trên Sổ tay Đảng viên điện tử.\n3. Hoàn thành công tác rà soát, làm sạch dữ liệu Đảng viên theo tiến độ Đảng ủy Đặc khu giao.${extraSection}\n\nIII. Giao Chi ủy Chi bộ 26 tổ chức triển khai, kiểm tra, đôn đốc toàn thể Đảng viên thực hiện thắng lợi Nghị quyết này.\nNghị quyết đã được Chi bộ 26 biểu quyết thông qua ngày 03/${mm}/${yyyy} với tỷ lệ 100% Đảng viên có mặt tán thành./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
+I. ĐẶC ĐIỂM TÌNH HÌNH ĐẢNG VIÊN
+- Tổng số Đảng viên của Chi bộ: ${totalMembers} đồng chí (Chính thức: ${officialCount} đồng chí; Dự bị: ${reserveCount} đồng chí - Đ/c Nguyễn Tiến Văn Phái).
+- Cấp ủy Chi bộ gồm 03 đồng chí: Bí thư Nguyễn Anh Tuấn; Phó Bí thư Đoàn Thị Diệu Hiền; Chi ủy viên Phan Kiều Diễm.
 
-        NGHI_QUYET_CHUYEN_DE: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-NQ/CB\n\n                        NGHỊ QUYẾT SINH HOẠT CHUYÊN ĐỀ\n        Về nâng cao chất lượng sinh hoạt Chi bộ và chuyển đổi số công tác Đảng\n                        tháng ${mm} năm ${yyyy}\n\nCăn cứ Hướng dẫn của Trung ương và Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chuyên đề;\nQua thảo luận tại buổi sinh hoạt chuyên đề của Chi bộ 26 tháng ${mm}/${yyyy},\n\n                        CHI BỘ 26 QUYẾT NGHỊ:\n\n1. Xác định việc ứng dụng công nghệ số trong quản lý sinh hoạt Chi bộ, điểm danh điện tử, gửi tài liệu nghiên cứu trước 03 ngày và nộp Đảng phí trực tuyến là nhiệm vụ trọng tâm nhằm nâng cao năng lực lãnh đạo của Chi bộ 26.\n2. Yêu cầu mỗi đồng chí Đảng viên chủ động khai thác thông tin trên Bản tin Chi bộ, tích cực tham gia phát biểu xây dựng Nghị quyết.${extraSection}\n3. Giao Chi ủy Chi bộ theo dõi, đánh giá kết quả thực hiện chuyên đề gắn với xếp loại chất lượng Đảng viên cuối năm./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`
+II. KẾT QUẢ LÃNH ĐẠO THỰC HIỆN NHIỆM VỤ THÁNG ${mm}/${yyyy}
+1. Công tác chính trị, tư tưởng: Toàn thể Đảng viên chấp hành nghiêm Cương lĩnh, Điều lệ Đảng, Nghị quyết của Đảng ủy Đặc khu Côn Đảo; giữ vững đoàn kết nội bộ tại Khu dân cư số 3.
+2. Công tác thu, nộp Đảng phí: Tính đến ngày 25/${mm}/${yyyy}, đã có ${paidList.length}/${totalMembers} đồng chí hoàn thành nộp Đảng phí qua Cổng TTHC Đảng với tổng số tiền ${formatVND(totalCollected)}.
+3. Công tác chuẩn hóa dữ liệu Đảng viên: Đã làm sạch ${cleanDone}/44 đồng chí (${((cleanDone/44)*100).toFixed(2)}%); đang làm sạch ${cleanDoing}/44 đồng chí; chưa làm sạch ${cleanNot}/44 đồng chí.${extraSection}
+
+III. PHƯƠNG HƯỚNG, NHIỆM VỤ TRỌNG TÂM THÁNG SAU
+1. Tổ chức tốt buổi sinh hoạt Chi bộ định kỳ vào đúng ngày mùng 03 tháng sau.
+2. Tiếp tục đôn đốc hoàn thành 100% chỉ tiêu thu Đảng phí và làm sạch dữ liệu Đảng viên trên Sổ tay Đảng viên điện tử.
+
+Nơi nhận:                                            T/M CHI BỘ 26
+- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
+- Toàn thể Đảng viên Chi bộ 26;
+- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
+
+        BIEN_BAN_HOP_04: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
+Số: ………-BB/CB
+
+                            BIÊN BẢN HỌP CHI BỘ
+            Sinh hoạt Chi bộ định kỳ tháng ${mm} năm ${yyyy}
+
+I. THỜI GIAN, ĐỊA ĐIỂM, THÀNH PHẦN THAM DỰ
+1. Thời gian: Vào lúc 19 giờ 00 phút, ngày 03 tháng ${mm} năm ${yyyy}.
+2. Địa điểm: Nhà văn hóa Khu dân cư số 3, Đặc khu Côn Đảo.
+3. Thành phần:
+- Chủ tọa: Đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26.
+- Thư ký: Đồng chí Phan Kiều Diễm – Chi ủy viên.
+- Tổng số Đảng viên triệu tập: ${totalMembers} đồng chí (Chính thức: ${officialCount}; Dự bị: ${reserveCount}).
+- Có mặt: ……… đồng chí; Vắng có phép: ……… đồng chí; Vắng không phép: 0 đồng chí.
+
+II. NỘI DUNG CUỘC HỌP
+1. Đồng chí Bí thư Chi bộ tuyên bố lý do, thông qua chương trình sinh hoạt định kỳ tháng ${mm}/${yyyy} và thông tin tình hình thời sự, văn bản chỉ đạo mới của Đảng ủy Đặc khu Côn Đảo.
+2. Đồng chí Phó Bí thư Đoàn Thị Diệu Hiền trình bày dự thảo Báo cáo tình hình hoạt động của Chi bộ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy}.
+3. Thảo luận của Đảng viên:${extraSection || '
+- Các đồng chí Đảng viên thống nhất cao với dự thảo báo cáo; tập trung thảo luận giải pháp giữ gìn an ninh trật tự, vệ sinh môi trường tại KDC số 3 và hoàn thiện làm sạch dữ liệu Đảng viên.'}
+
+III. BIỂU QUYẾT THÔNG QUA NGHỊ QUYẾT
+- Số Đảng viên tán thành: ………/${totalMembers} đồng chí (đạt 100% số có mặt).
+- Số không tán thành: 0 đồng chí.
+Cuộc họp kết thúc vào lúc 20 giờ 30 phút cùng ngày./.
+
+        THƯ KÝ                                        CHỦ TỌA
+   (Ký, ghi rõ họ tên)                            (Ký, ghi rõ họ tên)
+
+    Phan Kiều Diễm                                 Nguyễn Anh Tuấn`,
+
+        CHAM_DIEM_SHCB: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
+
+                BẢNG TỰ CHẤM ĐIỂM CHẤT LƯỢNG SINH HOẠT CHI BỘ
+                    Kỳ sinh hoạt định kỳ tháng ${mm} năm ${yyyy}
+            (Ban hành kèm theo Hướng dẫn của Ban Tổ chức Trung ương)
+
+| STT | Tiêu chí đánh giá chất lượng sinh hoạt Chi bộ | Điểm tối đa | Chi bộ tự chấm |
+|-----|-----------------------------------------------|-------------|----------------|
+|  1  | Công tác chuẩn bị sinh hoạt (Họp Chi ủy, gửi tài liệu trước 3 ngày) | 15 điểm | 15 điểm |
+|  2  | Tổ chức sinh hoạt đúng ngày mùng 03, tỷ lệ Đảng viên tham dự cao | 15 điểm | 14 điểm |
+|  3  | Nội dung sinh hoạt toàn diện (Chính trị tư tưởng, thực hiện nhiệm vụ) | 25 điểm | 24 điểm |
+|  4  | Thực hiện nguyên tắc tập trung dân chủ, tự phê bình và phê bình | 20 điểm | 19 điểm |
+|  5  | Chất lượng thảo luận, đóng góp ý kiến của Đảng viên tại cuộc họp | 15 điểm | 14 điểm |
+|  6  | Ban hành Nghị quyết, phân công nhiệm vụ và ghi chép Biên bản đầy đủ | 10 điểm | 10 điểm |
+|     | TỔNG CỘNG ĐIỂM ĐẠT ĐƯỢC (Xếp loại: TỐT) | 100 điểm | 96 điểm |
+
+Ghi chú bổ sung từ thực tế kỳ họp:${extraSection || '
+- Chi bộ duy trì nghiêm túc việc gửi dự thảo báo cáo trước 3 ngày và điểm danh điện tử.'}
+
+                                                     T/M CHI BỘ 26
+                                                        BÍ THƯ
+                                                   Nguyễn Anh Tuấn`,
+
+        KET_LUAN_BI_THU: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
+Số: ………-TB/CB
+
+                                THÔNG BÁO
+        Kết luận của đồng chí Bí thư Chi bộ tại kỳ sinh hoạt tháng ${mm}/${yyyy}
+
+Tại kỳ sinh hoạt Chi bộ định kỳ ngày 03/${mm}/${yyyy}, sau khi nghe báo cáo tình hình hoạt động và ý kiến thảo luận của các đồng chí Đảng viên, đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26 kết luận và giao nhiệm vụ như sau:
+
+1. Về công tác chính trị, tư tưởng và tuyên truyền:
+- Giao đồng chí Đoàn Thị Diệu Hiền – Phó Bí thư Chi bộ tiếp tục đăng tải kịp thời các văn bản chỉ đạo của Đảng ủy Đặc khu Côn Đảo lên Bản tin Chi bộ để 44 Đảng viên nghiên cứu, thực hiện.
+
+2. Về công tác quản lý Đảng viên và thu nộp Đảng phí:
+- Giao đồng chí Phan Kiều Diễm – Chi ủy viên theo dõi, đôn đốc ${totalMembers - paidList.length} đồng chí còn lại hoàn thành nộp Đảng phí tháng ${mm}/${yyyy} qua Cổng TTHC Đảng trước ngày 18/${mm}/${yyyy}.
+- Các Tổ trưởng Tổ Đảng 1, 2, 3, 4 trực tiếp hỗ trợ ${cleanNot} đồng chí chưa làm sạch dữ liệu hoàn thành cập nhật hồ sơ.${extraSection}
+
+3. Tổ chức thực hiện:
+- Toàn thể 44 đồng chí Đảng viên nghiêm túc triển khai thực hiện và báo cáo kết quả tại kỳ sinh hoạt tiếp theo./.
+
+Nơi nhận:                                            T/M CHI BỘ 26
+- Toàn thể Đảng viên Chi bộ 26;                          BÍ THƯ
+- Lưu Chi bộ.                                      Nguyễn Anh Tuấn`,
+
+        NGHI_QUYET_DINH_KY: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
+Số: ………-NQ/CB
+
+                                NGHỊ QUYẾT
+            Lãnh đạo thực hiện nhiệm vụ chính trị tháng ${mm} năm ${yyyy}
+
+Căn cứ Điều lệ Đảng Cộng sản Việt Nam;
+Căn cứ Nghị quyết, Chương trình công tác năm ${yyyy} của Đảng ủy Đặc khu Côn Đảo;
+Căn cứ kết quả hội nghị sinh hoạt Chi bộ 26 ngày 03 tháng ${mm} năm ${yyyy},
+
+                        CHI BỘ 26 QUYẾT NGHỊ:
+
+I. Tán thành đánh giá tình hình thực hiện nhiệm vụ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy} do Chi ủy trình bày tại hội nghị.
+II. Tập trung lãnh đạo thực hiện các chỉ tiêu, nhiệm vụ trọng tâm tháng ${mm}/${yyyy}:
+1. 100% Đảng viên giữ vững phẩm chất chính trị, gương mẫu chấp hành quy định tại nơi cư trú (Khu dân cư số 3).
+2. Phấn đấu 100% Đảng viên hoàn thành nghĩa vụ đóng Đảng phí tháng ${mm}/${yyyy} đúng hạn và cập nhật đầy đủ trên Sổ tay Đảng viên điện tử.
+3. Hoàn thành công tác rà soát, làm sạch dữ liệu Đảng viên theo tiến độ Đảng ủy Đặc khu giao.${extraSection}
+
+III. Giao Chi ủy Chi bộ 26 tổ chức triển khai, kiểm tra, đôn đốc toàn thể Đảng viên thực hiện thắng lợi Nghị quyết này.
+Nghị quyết đã được Chi bộ 26 biểu quyết thông qua ngày 03/${mm}/${yyyy} với tỷ lệ 100% Đảng viên có mặt tán thành./.
+
+Nơi nhận:                                            T/M CHI BỘ 26
+- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
+- Toàn thể Đảng viên Chi bộ 26;
+- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
+
+        NGHI_QUYET_CHUYEN_DE: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
+CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
+Số: ………-NQ/CB
+
+                        NGHỊ QUYẾT SINH HOẠT CHUYÊN ĐỀ
+        Về nâng cao chất lượng sinh hoạt Chi bộ và chuyển đổi số công tác Đảng
+                        tháng ${mm} năm ${yyyy}
+
+Căn cứ Hướng dẫn của Trung ương và Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chuyên đề;
+Qua thảo luận tại buổi sinh hoạt chuyên đề của Chi bộ 26 tháng ${mm}/${yyyy},
+
+                        CHI BỘ 26 QUYẾT NGHỊ:
+
+1. Xác định việc ứng dụng công nghệ số trong quản lý sinh hoạt Chi bộ, điểm danh điện tử, gửi tài liệu nghiên cứu trước 03 ngày và nộp Đảng phí trực tuyến là nhiệm vụ trọng tâm nhằm nâng cao năng lực lãnh đạo của Chi bộ 26.
+2. Yêu cầu mỗi đồng chí Đảng viên chủ động khai thác thông tin trên Bản tin Chi bộ, tích cực tham gia phát biểu xây dựng Nghị quyết.${extraSection}
+3. Giao Chi ủy Chi bộ theo dõi, đánh giá kết quả thực hiện chuyên đề gắn với xếp loại chất lượng Đảng viên cuối năm./.
+
+Nơi nhận:                                            T/M CHI BỘ 26
+- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
+- Toàn thể Đảng viên Chi bộ 26;
+- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`
       };
 
       return templates[tpl] || templates.BC_HOAT_DONG_25;
@@ -693,7 +857,7 @@
         </body>
         </html>
       `;
-      const blob = new Blob(['\ufeff', htmlDoc], { type: 'application/msword' });
+      const blob = new Blob(['﻿', htmlDoc], { type: 'application/msword' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -722,7 +886,7 @@
         </body>
         </html>
       `;
-      const blob = new Blob(['\ufeff', htmlDoc], { type: 'application/msword' });
+      const blob = new Blob(['﻿', htmlDoc], { type: 'application/msword' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -923,7 +1087,12 @@
         a.download = post.attachmentName || 'TaiLieu_ChiBo26';
         a.click();
       } else {
-        const text = `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26\nCHUYÊN MỤC: ${post.category.toUpperCase()}\nTIÊU ĐỀ: ${post.title}\nNgười đăng: ${post.author} | Thời gian: ${post.postedAt}\n------------------------------------------------------------\n${post.content}`;
+        const text = `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26
+CHUYÊN MỤC: ${post.category.toUpperCase()}
+TIÊU ĐỀ: ${post.title}
+Người đăng: ${post.author} | Thời gian: ${post.postedAt}
+------------------------------------------------------------
+${post.content}`;
         const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -1103,7 +1272,10 @@
         a.download = doc.fileName || 'TaiLieu_ChiBo26';
         a.click();
       } else {
-        const text = `${doc.title.toUpperCase()}\nĐơn vị: Chi bộ 26 - Đảng ủy Đặc khu Côn Đảo\n----------------------------------------\n${doc.contentFull}`;
+        const text = `${doc.title.toUpperCase()}
+Đơn vị: Chi bộ 26 - Đảng ủy Đặc khu Côn Đảo
+----------------------------------------
+${doc.contentFull}`;
         const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -1132,6 +1304,928 @@
       state.attendance[req.memberId][req.meetingId] = decision === 'APPROVED' ? 'EXCUSED' : 'UNEXCUSED';
       saveState();
       showToast(decision === 'APPROVED' ? 'Đã DUYỆT vắng có phép cho đồng chí ' + req.memberName : 'Đã TỪ CHỐI đơn xin vắng');
+    }
+
+    function renderLogin() {
+      const admins = state.members.filter(m => m.role === 'ADMIN');
+      const members = state.members.filter(m => m.role === 'MEMBER');
+      return `
+        <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-amber-900 p-4">
+          <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-amber-200">
+            <div class="bg-red-800 text-white p-6 text-center border-b-4 border-amber-400">
+              <div class="flex justify-center mb-3">${PARTY_FLAG_SVG}</div>
+              <p class="text-xs uppercase tracking-widest text-amber-200 font-semibold">Đảng bộ Đặc khu Côn Đảo</p>
+              <h1 class="text-xl font-bold mt-1">CHI BỘ 26 - HỆ THỐNG QUẢN LÝ</h1>
+              <p class="text-xs text-red-100 mt-1">Đảng phí tháng ${REAL_PERIOD_KEY} • Bản tin Chi bộ • Lập báo cáo</p>
+            </div>
+            <form onsubmit="handleLogin(event)" class="p-6 space-y-4">
+              <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Chọn tài khoản Đảng viên (44 đồng chí)</label>
+                <select id="login-user" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-red-600 focus:outline-none">
+                  <optgroup label="--- CHI ỦY CHI BỘ 26 (03 TÀI KHOẢN ADMIN) ---">
+                    ${admins.map(a => `<option value="${a.id}">${a.id} - ${a.fullName} (${a.position})</option>`).join('')}
+                  </optgroup>
+                  <optgroup label="--- ĐẢNG VIÊN CHI BỘ (41 TÀI KHOẢN) ---">
+                    ${members.map(m => `<option value="${m.id}">${m.id} - ${m.fullName} (${m.partyGroup}${m.status === 'Dự bị' ? ' - Dự bị' : ''})</option>`).join('')}
+                  </optgroup>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Mật khẩu đăng nhập</label>
+                <input id="login-pass" type="password" value="123456" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-red-600 focus:outline-none" />
+                <p class="text-xs text-slate-500 mt-1">Mật khẩu mặc định khởi tạo: <strong class="text-red-700">123456</strong></p>
+              </div>
+              <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded-lg shadow transition">
+                ĐĂNG NHẬP HỆ THỐNG
+              </button>
+            </form>
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      const app = document.getElementById('app');
+      const user = state.members.find(m => m.id === currentUserId);
+      if (!user) {
+        app.innerHTML = renderLogin();
+        return;
+      }
+
+      const isAdmin = user.role === 'ADMIN';
+      const activeMeeting = state.meetings.find(m => m.id === state.selectedMeetingId) || state.meetings[0];
+
+      const totalMembers = state.members.length;
+      const officialCount = state.members.filter(m => m.status === 'Chính thức').length;
+      const reserveCount = state.members.filter(m => m.status === 'Dự bị').length;
+
+      let presentCount = 0, excusedCount = 0, unexcusedCount = 0, pendingCount = 0;
+      state.members.forEach(m => {
+        const st = (state.attendance[m.id] && state.attendance[m.id][activeMeeting.id]) || 'PENDING';
+        if (st === 'PRESENT') presentCount++;
+        else if (st === 'EXCUSED') excusedCount++;
+        else if (st === 'UNEXCUSED') unexcusedCount++;
+        else pendingCount++;
+      });
+
+      const paidMembers = state.members.filter(m => getMemberFeeRecord(m.id, REAL_PERIOD_KEY).paid);
+      const totalFeeCollected = paidMembers.reduce((s, m) => s + getMemberFeeRecord(m.id, REAL_PERIOD_KEY).amount, 0);
+      const pendingLeaves = state.leaveRequests.filter(r => r.status === 'PENDING');
+
+      const cleanDone = state.members.filter(m => m.cleanStatus === 'Đã làm sạch').length;
+      const cleanDoing = state.members.filter(m => m.cleanStatus === 'Đang làm sạch').length;
+      const cleanNot = state.members.filter(m => m.cleanStatus === 'Chưa làm sạch').length;
+
+      const tabs = [
+        { id: 'dashboard', label: '🏠 Tổng quan' },
+        { id: 'wall', label: `📰 Bản tin Chi bộ (${state.wallPosts.length})` },
+        { id: 'ai_reports', label: '📄 Lập báo cáo và Biểu mẫu' },
+        { id: 'documents', label: `📚 Tài liệu trước 3 ngày (${state.documents.length})` },
+        { id: 'attendance', label: '📋 Điểm danh & Báo vắng' + (isAdmin && pendingLeaves.length ? ` (${pendingLeaves.length})` : '') },
+        { id: 'fees', label: `💳 Sổ Đảng phí Tháng ${REAL_MONTH_STR}` },
+        { id: 'evaluation', label: '📊 Đánh giá chất lượng sinh hoạt' }
+      ];
+
+      app.innerHTML = `
+        ${toastMessage ? `<div class="fixed bottom-4 right-4 z-50 bg-emerald-700 text-white px-4 py-3 rounded-xl shadow-xl text-sm font-medium border border-emerald-400 no-print">✓ ${toastMessage}</div>` : ''}
+
+        <header class="bg-red-800 text-white shadow-md border-b-4 border-amber-400 no-print">
+          <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              ${PARTY_FLAG_SVG}
+              <div>
+                <div class="text-xs text-amber-200 uppercase font-semibold">Đảng ủy Đặc khu Côn Đảo • Ngày ${String(REAL_DAY).padStart(2,'0')}/${REAL_MONTH_STR}/${REAL_YEAR}</div>
+                <div class="font-bold text-base sm:text-lg leading-tight">CHI BỘ 26 — HỆ THỐNG QUẢN LÝ CÔNG TÁC ĐẢNG</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3">
+              <div class="text-right">
+                <div class="text-sm font-semibold">${user.fullName}</div>
+                <div class="text-xs text-amber-200">${isAdmin ? '🛡️ ADMIN: ' + user.position : '👤 ' + user.partyGroup + ' (' + user.status + ')'}</div>
+              </div>
+              <button onclick="changePassword()" class="bg-red-900 hover:bg-red-950 px-2.5 py-1.5 rounded-lg text-xs border border-red-600">🔑 Đổi MK</button>
+              <button onclick="handleLogout()" class="bg-amber-400 hover:bg-amber-300 text-red-950 font-semibold px-3 py-1.5 rounded-lg text-xs">Đăng xuất</button>
+            </div>
+          </div>
+
+          <div class="bg-red-900/80 border-t border-red-700">
+            <div class="max-w-7xl mx-auto px-4 flex overflow-x-auto gap-1 py-1.5">
+              ${tabs.map(t => `
+                <button onclick="setTab('${t.id}')" class="px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition ${state.activeTab === t.id ? 'bg-amber-400 text-red-950 shadow' : 'text-red-100 hover:bg-red-800'}">
+                  ${t.label}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 py-6">
+          ${state.activeTab === 'dashboard' ? renderDashboard(user, isAdmin, activeMeeting, { totalMembers, officialCount, reserveCount, presentCount, excusedCount, unexcusedCount, pendingCount, paidCount: paidMembers.length, totalFeeCollected, cleanDone, cleanDoing, cleanNot }) : ''}
+          ${state.activeTab === 'wall' ? renderWall(user, isAdmin) : ''}
+          ${state.activeTab === 'ai_reports' ? renderAiReports(isAdmin) : ''}
+          ${state.activeTab === 'documents' ? renderDocuments(user, isAdmin) : ''}
+          ${state.activeTab === 'attendance' ? renderAttendance(user, isAdmin, activeMeeting) : ''}
+          ${state.activeTab === 'fees' ? renderFees(user, isAdmin, paidMembers.length, totalFeeCollected) : ''}
+          ${state.activeTab === 'evaluation' ? renderEvaluation(isAdmin, cleanDone, cleanDoing, cleanNot) : ''}
+        </main>
+      `;
+    }
+
+    function renderDashboard(user, isAdmin, activeMeeting, stats) {
+      const latestInv = state.invitations[0];
+      const targetMeetingId = latestInv ? latestInv.meetingId : activeMeeting.id;
+      const myAtt = (state.attendance[user.id] && state.attendance[user.id][targetMeetingId]) || 'PENDING';
+      const myFeeRec = getMemberFeeRecord(user.id, REAL_PERIOD_KEY);
+      const isAbsenceBtnDisabled = (state.absenceInputReason || '').trim().length < 5;
+
+      return `
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+              <div class="text-xs font-semibold text-slate-500 uppercase">Tổng số Đảng viên</div>
+              <div class="text-2xl font-bold text-slate-900 mt-1">${stats.totalMembers} <span class="text-sm font-normal text-slate-500">đồng chí</span></div>
+              <div class="text-xs text-slate-600 mt-2">Chính thức: <strong>${stats.officialCount}</strong> • Dự bị: <strong>${stats.reserveCount}</strong></div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+              <div class="text-xs font-semibold text-slate-500 uppercase">Đảng phí Tháng ${REAL_MONTH_STR}/${REAL_YEAR}</div>
+              <div class="text-2xl font-bold text-emerald-700 mt-1">${stats.paidCount}/${stats.totalMembers} <span class="text-sm font-normal text-slate-500">đã nộp</span></div>
+              <div class="text-xs text-slate-600 mt-2">Tổng thu: <strong>${formatVND(stats.totalFeeCollected)}</strong></div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:border-blue-400" onclick="setTab('wall')">
+              <div class="text-xs font-semibold text-slate-500 uppercase">Bản tin Chi bộ</div>
+              <div class="text-2xl font-bold text-blue-700 mt-1">${state.wallPosts.length} <span class="text-sm font-normal text-slate-500">tin, bài, chỉ đạo</span></div>
+              <div class="text-xs text-blue-700 font-semibold mt-2">Mở xem & tải tài liệu lưu trữ →</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-400" onclick="setTab('ai_reports')">
+              <div class="text-xs font-semibold text-slate-500 uppercase">Lập báo cáo và Biểu mẫu</div>
+              <div class="text-2xl font-bold text-red-700 mt-1">6 Mẫu <span class="text-sm font-normal text-slate-500">chuẩn Đảng</span></div>
+              <div class="text-xs text-red-700 font-semibold mt-2">Mốc ngày 25 & sau ngày 04 →</div>
+            </div>
+          </div>
+
+          ${isAdmin ? `
+            <div class="bg-white rounded-xl shadow-sm border-2 border-red-700 p-5">
+              <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 text-[11px] font-bold uppercase">Admin</span>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900 mt-1">📢 Soạn & Gửi Thông báo mời họp Chi bộ tới toàn thể 44 Đảng viên</h2>
+              <form onsubmit="sendMeetingInvitation(event)" class="mt-3 space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Chọn kỳ sinh hoạt Chi bộ</label>
+                    <select id="inv-meeting-id" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold">
+                      ${state.meetings.map(m => `<option value="${m.id}">${m.date} - ${m.title}</option>`).join('')}
+                    </select>
+                  </div>
+                  <div class="flex items-end">
+                    <div class="text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 w-full">
+                      Gửi trực tiếp tới tài khoản 44 Đảng viên kèm ô <strong>Báo vắng (ghi lý do mới gửi đi được)</strong>.
+                    </div>
+                  </div>
+                </div>
+                <textarea id="inv-content" rows="2" required placeholder="Gõ nội dung mời toàn thể Đảng viên tham dự sinh hoạt Chi bộ..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></textarea>
+                <div class="flex justify-end">
+                  <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2 rounded-lg text-xs shadow">📨 Gửi thông báo mời họp tới 44 Đảng viên</button>
+                </div>
+              </form>
+            </div>
+          ` : ''}
+
+          <div class="bg-white rounded-xl shadow-sm border-2 border-amber-400 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-amber-100">
+              <div>
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">📩 Thông báo mời sinh hoạt Chi bộ gửi đến: ${user.fullName}</span>
+                <h3 class="text-base font-bold text-red-900 mt-1">${latestInv ? latestInv.meetingTitle : activeMeeting.title}</h3>
+              </div>
+              ${latestInv ? `<div class="text-xs text-slate-500 text-right">Người gửi: <strong>${latestInv.senderName}</strong> (${latestInv.sentAt})</div>` : ''}
+            </div>
+              <div class="mt-3 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-slate-800">
+              ${latestInv ? latestInv.content : 'Kính mời toàn thể Đảng viên Chi bộ 26 tham dự sinh hoạt định kỳ.'}
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <div class="text-xs">
+                <span class="font-semibold text-slate-600 mr-1">Trạng thái:</span>
+                ${myAtt === 'PRESENT' ? '<span class="px-2.5 py-1 rounded-full font-bold bg-emerald-100 text-emerald-800">✓ Đã xác nhận THAM DỰ</span>' : ''}
+                ${myAtt === 'EXCUSED' ? '<span class="px-2.5 py-1 rounded-full font-bold bg-blue-100 text-blue-800">✓ Đã duyệt VẮNG CÓ PHÉP</span>' : ''}
+                ${myAtt === 'LEAVE_PENDING' ? '<span class="px-2.5 py-1 rounded-full font-bold bg-amber-100 text-amber-900">⏳ Đang chờ Chi ủy duyệt đơn vắng</span>' : ''}
+                ${myAtt === 'PENDING' ? '<span class="px-2.5 py-1 rounded-full font-bold bg-slate-200 text-slate-700">Chưa phản hồi</span>' : ''}
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button onclick="setAttendance('${user.id}', '${targetMeetingId}', 'PRESENT')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">✓ Xác nhận Tham dự</button>
+                <button onclick="toggleAbsenceBox()" class="bg-amber-500 hover:bg-amber-600 text-red-950 font-bold px-4 py-2 rounded-lg text-xs shadow">✋ Báo vắng</button>
+                <button onclick="setTab('documents')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">📚 Tài liệu trước 3 ngày</button>
+              </div>
+            </div>
+
+            ${state.showAbsenceBox ? `
+              <div class="mt-4 p-4 rounded-xl bg-red-50 border-2 border-red-300 space-y-3">
+                <label class="block text-xs font-bold text-red-900 uppercase">📝 Ghi lý do xin vắng sinh hoạt (Ghi xong mới nhấn Gửi đi được):</label>
+                <textarea rows="2" oninput="updateAbsenceReason(this.value)" placeholder="Nhập rõ lý do xin vắng của đồng chí ${user.fullName}..." class="w-full bg-white border border-red-300 rounded-lg px-3 py-2 text-sm">${state.absenceInputReason}</textarea>
+                <div class="flex justify-between items-center">
+                  <span class="text-[11px] text-red-700">* Bắt buộc nhập tối thiểu 5 ký tự để mở khóa nút Gửi đi.</span>
+                  <button id="btn-submit-absence" type="button" ${isAbsenceBtnDisabled ? 'disabled' : ''} onclick="submitAbsenceFromNotice('${targetMeetingId}')" class="${isAbsenceBtnDisabled ? 'bg-slate-300 text-slate-500 cursor-not-allowed' : 'bg-red-700 hover:bg-red-800 text-white cursor-pointer shadow'} font-bold px-5 py-2 rounded-lg text-xs">📤 Gửi đi</button>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="rounded-2xl p-5 shadow-sm border transition-all ${myFeeRec.paid ? 'bg-emerald-50/90 border-emerald-400' : 'bg-red-50/90 border-red-400'}">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-start gap-3">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl font-bold text-white shadow ${myFeeRec.paid ? 'bg-emerald-600' : 'bg-red-600'}">
+                  ${myFeeRec.paid ? '✓' : '!'}
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-xs font-bold uppercase tracking-wider ${myFeeRec.paid ? 'text-emerald-800' : 'text-red-800'}">
+                      Đảng phí Tháng ${REAL_MONTH_STR}/${REAL_YEAR}
+                    </span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold text-white ${myFeeRec.paid ? 'bg-emerald-600' : 'bg-red-600'}">
+                      ${myFeeRec.paid ? '✓ Đã nộp Đảng phí' : 'Chưa nộp Đảng phí'}
+                    </span>
+                  </div>
+                  <h2 class="text-base font-bold text-slate-900 mt-1">
+                    Đồng chí ${user.fullName} — Số tiền: <span class="${myFeeRec.paid ? 'text-emerald-700' : 'text-red-700'}">${formatVND(myFeeRec.amount)}</span>
+                  </h2>
+                  <p class="text-xs text-slate-600 mt-0.5">
+                    ${myFeeRec.paid
+                      ? `Đã xác nhận nộp ngày <strong>${myFeeRec.paidDate}</strong> • Mã liên thông: <strong>${myFeeRec.portalRef}</strong> • Người thực hiện: ${myFeeRec.paidBy}`
+                      : `Vui lòng nộp qua Cổng TTHC Đảng và bấm nút <strong>Báo nộp Đảng phí tháng ${REAL_MONTH_STR}/${REAL_YEAR}</strong> để cập nhật trạng thái.`}
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                ${!myFeeRec.paid ? `
+                  <button onclick="submitSelfPartyFee('${user.id}', false)" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow">
+                    💳 Báo nộp Đảng phí tháng ${REAL_MONTH_STR}/${REAL_YEAR}
+                  </button>
+                ` : `
+                  <button onclick="submitSelfPartyFee('${user.id}', false)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow">
+                    ✓ Đã nộp tháng ${REAL_MONTH_STR}/${REAL_YEAR}
+                  </button>
+                `}
+                <button onclick="setTab('fees')" class="bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-semibold px-3.5 py-2.5 rounded-xl text-xs">
+                  Mở Sổ Đảng phí
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWall(user, isAdmin) {
+      const filteredPosts = state.wallFilter === 'ALL'
+        ? state.wallPosts
+        : state.wallPosts.filter(p => p.category === state.wallFilter);
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-red-900 via-red-800 to-amber-800 text-white rounded-2xl p-5 shadow">
+            <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Không gian thông tin nội bộ & Tuyên truyền</div>
+            <p class="text-xs sm:text-sm text-red-100 mt-1">Nơi Chi ủy đăng tải tin, bài, hình ảnh hoạt động cơ sở Đảng, Khu dân cư và văn bản chỉ đạo, hướng dẫn của cấp trên để Đảng viên nghiên cứu, tải về lưu trữ.</p>
+          </div>
+
+          ${isAdmin ? `
+            <div class="bg-white rounded-xl shadow-sm border-2 border-red-700 p-5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded bg-red-100 text-red-800 text-xs font-bold uppercase">Admin</span>
+                ${state.editingWallPostId ? `<span class="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded">Đang chỉnh sửa bài đã thu hồi</span>` : ''}
+              </div>
+
+              ${state.wallPublishResultBanner ? `
+                <div class="mt-3 p-3 rounded-lg bg-emerald-50 border border-emerald-400 text-emerald-900 text-xs font-semibold flex items-center justify-between">
+                  <span>✓ ${state.wallPublishResultBanner}</span>
+                  <button onclick="state.wallPublishResultBanner=''; render();" class="text-emerald-700 hover:underline ml-2">Đóng</button>
+                </div>
+              ` : ''}
+
+              <form onsubmit="publishWallPost(event)" class="mt-4 space-y-3 text-xs">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div>
+                    <label class="font-bold block mb-1">Chuyên mục đăng tải</label>
+                    <select id="wall-cat" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                      <option value="Chỉ đạo & Hướng dẫn cấp trên">Chỉ đạo & Hướng dẫn cấp trên</option>
+                      <option value="Tin hoạt động Chi bộ 26">Tin hoạt động Chi bộ 26</option>
+                      <option value="Tin hoạt động Khu dân cư số 3">Tin hoạt động Khu dân cư số 3</option>
+                      <option value="Kế hoạch & Thông báo">Kế hoạch & Thông báo</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-bold block mb-1">Đính kèm Hình ảnh (JPG/PNG)</label>
+                    <input id="wall-img-input" type="file" accept="image/*" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
+                  </div>
+                  <div>
+                    <label class="font-bold block mb-1">Đính kèm Tệp văn bản (PDF, Word, TXT)</label>
+                    <input id="wall-file-input" type="file" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
+                  </div>
+                </div>
+                <div>
+                  <label class="font-bold block mb-1">Tiêu đề tin, bài hoặc văn bản chỉ đạo</label>
+                  <input id="wall-title" type="text" required placeholder="Nhập tiêu đề..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" />
+                </div>
+                <div>
+                  <label class="font-bold block mb-1">Tóm tắt ngắn gọn</label>
+                  <input id="wall-summary" type="text" placeholder="Tóm tắt nội dung chính..." class="w-full border border-slate-300 rounded-lg px-3 py-2" />
+                </div>
+                <div>
+                  <label class="font-bold block mb-1">Nội dung chi tiết</label>
+                  <textarea id="wall-content" rows="4" required placeholder="Nhập toàn văn nội dung..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></textarea>
+                </div>
+                <div class="flex items-center justify-end gap-2">
+                  <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold px-6 py-2.5 rounded-lg shadow text-xs">
+                    Đăng
+                  </button>
+                  <button type="button" onclick="refreshRecallWallForm()" title="Thu hồi bài đăng để chỉnh sửa lại / Làm mới" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-3.5 py-2.5 rounded-lg text-xs border border-slate-300 flex items-center gap-1">
+                    🔄 Refresh
+                  </button>
+                </div>
+              </form>
+            </div>
+          ` : ''}
+
+          <div class="flex flex-wrap items-center gap-2">
+            ${['ALL', 'Chỉ đạo & Hướng dẫn cấp trên', 'Tin hoạt động Chi bộ 26', 'Tin hoạt động Khu dân cư số 3', 'Kế hoạch & Thông báo'].map(cat => `
+              <button onclick="state.wallFilter='${cat}'; render();" class="px-3 py-1.5 rounded-full text-xs font-bold border transition ${state.wallFilter === cat ? 'bg-red-800 text-white border-red-800' : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'}">
+                ${cat === 'ALL' ? `Tất cả bài đăng (${state.wallPosts.length})` : cat}
+              </button>
+            `).join('')}
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            ${filteredPosts.map(post => {
+              const isSaved = post.savedBy.includes(user.id);
+              return `
+                <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between">
+                  <div>
+                    ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}" class="w-full h-56 object-cover border-b border-slate-200" />` : ''}
+                    <div class="p-5 space-y-2.5">
+                      <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900">${post.category}</span>
+                        <span class="text-xs text-slate-500">🕒 ${post.postedAt}</span>
+                      </div>
+                      <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${post.title}</h3>
+                      <p class="text-xs text-slate-500">Người đăng: <strong>${post.author}</strong></p>
+                      <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 whitespace-pre-line leading-relaxed max-h-64 overflow-y-auto">
+                        ${post.content}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-[11px] text-slate-500">Đã lưu trữ: <strong>${post.savedBy.length}</strong> Đảng viên</span>
+                    <div class="flex items-center gap-2">
+                      <button onclick="downloadWallPost('${post.id}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-3.5 py-2 rounded-lg text-xs shadow">
+                        ⬇ ${isSaved ? 'Tải lại tài liệu lưu trữ' : 'Tải về lưu xem lại'}
+                      </button>
+                      ${isAdmin ? `<button onclick="recallSpecificWallPost('${post.id}')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 px-2.5 py-2 rounded-lg text-xs font-semibold">🔄 Thu hồi sửa</button>` : ''}
+                      ${isAdmin ? `<button onclick="deleteWallPost('${post.id}')" class="bg-white hover:bg-red-50 text-red-700 border border-red-200 px-2.5 py-2 rounded-lg text-xs font-semibold">Xóa</button>` : ''}
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAiReports(isAdmin) {
+      const mm = state.reportTargetMonth;
+      const yyyy = state.reportTargetYear;
+
+      const templateItems = [
+        { key: 'BC_HOAT_DONG_25', group: 'Mốc ngày 25 (Trước họp mùng 03)', name: 'Báo cáo tình hình hoạt động Chi bộ 26 tháng (mm)/(yyyy)' },
+        { key: 'BIEN_BAN_HOP_04', group: 'Mốc sau ngày 04 (Sau kỳ họp mùng 03)', name: 'Biên bản cuộc họp sinh hoạt Chi bộ định kỳ tháng' },
+        { key: 'CHAM_DIEM_SHCB', group: 'Mốc sau ngày 04 (Sau kỳ họp mùng 03)', name: 'Bảng chấm điểm chất lượng sinh hoạt Chi bộ định kỳ' },
+        { key: 'KET_LUAN_BI_THU', group: 'Mốc sau ngày 04 (Sau kỳ họp mùng 03)', name: 'Kết luận cuộc họp của Bí thư Chi bộ' },
+        { key: 'NGHI_QUYET_DINH_KY', group: 'Mốc sau ngày 04 (Sau kỳ họp mùng 03)', name: 'Dự thảo Nghị quyết Chi bộ (Sinh hoạt định kỳ tháng)' },
+        { key: 'NGHI_QUYET_CHUYEN_DE', group: 'Mốc sau ngày 04 (Sau kỳ họp mùng 03)', name: 'Dự thảo Nghị quyết Chi bộ (Sinh hoạt chuyên đề)' }
+      ];
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl shadow-sm border-2 border-red-700 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
+              <div>
+                <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 text-[11px] font-bold uppercase">Hệ thống Văn bản & Biểu mẫu Đảng</span>
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 mt-1">📄 Lập báo cáo và Biểu mẫu Chi bộ 26</h2>
+              </div>
+              <div class="relative inline-block text-left">
+                <button type="button" onclick="document.getElementById('dropdown-bieumau').classList.toggle('hidden')" class="bg-amber-500 hover:bg-amber-600 text-red-950 font-bold px-4 py-2.5 rounded-lg text-xs shadow flex items-center gap-1">
+                  <span>Biểu mẫu ▼</span>
+                </button>
+                <div id="dropdown-bieumau" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-200 z-50 p-2 space-y-1">
+                  <div class="text-[10px] font-bold text-slate-500 uppercase px-2 py-1">Chọn mẫu biểu cần tải:</div>
+                  ${templateItems.map(item => `
+                    <button type="button" onclick="downloadTemplateForm('${item.key}'); document.getElementById('dropdown-bieumau').classList.add('hidden');" class="w-full text-left px-3 py-2 text-xs rounded-lg hover:bg-red-50 text-slate-800 font-medium">
+                      + ${item.name} (${REAL_YEAR})
+                    </button>
+                  `).join('')}
+                  <a href="https://latendoc.com" target="_blank" rel="noopener noreferrer" class="block w-full text-left px-3 py-2 text-xs rounded-lg hover:bg-blue-50 text-blue-800 font-bold">
+                    🔗 Kho biểu mẫu latendoc.com ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-3">
+                <div class="text-xs font-bold text-slate-900 uppercase">Gửi Báo cáo cá nhân về Chi ủy</div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Tên tệp báo cáo nhận diện:</label>
+                  <input id="member-report-title" type="text" value="Báo cáo kiểm điểm tự đánh giá xếp loại cá nhân năm ${REAL_YEAR}" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs font-medium bg-white" />
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="file" id="member-report-file" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs bg-white" />
+                  <button type="button" onclick="submitMemberReport()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-3.5 py-2 rounded-lg text-xs shrink-0 shadow">Tải tệp lên</button>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900">Trạng thái: Đang chờ duyệt</span>
+                  <button type="button" onclick="submitMemberReport()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">Gửi Báo cáo</button>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-3">
+                <div class="text-xs font-bold text-slate-900 uppercase">Danh mục biểu mẫu trực tiếp</div>
+                <div class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                  ${templateItems.map(item => `
+                    <div class="flex items-center justify-between bg-white p-2 rounded border border-slate-200 text-xs">
+                      <span class="truncate pr-2 font-medium">${item.name}</span>
+                      <button type="button" onclick="downloadTemplateForm('${item.key}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-2.5 py-1 rounded text-[11px] shrink-0">Tải về</button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            ${isAdmin ? `
+              <div class="mt-6 pt-5 border-t-2 border-red-100">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[11px] font-bold uppercase">Admin (Tiếp nhận báo cáo từ Đảng viên)</span>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900">Quản lý duyệt / từ chối báo cáo cá nhân (${state.incomingReports.length})</h3>
+                </div>
+                <div class="space-y-2">
+                  ${state.incomingReports.length === 0 ? `<div class="text-xs text-slate-500 italic p-3 bg-slate-50 rounded">Chưa có báo cáo nào gửi về.</div>` : ''}
+                  ${state.incomingReports.map(rep => `
+                    <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs flex flex-wrap justify-between items-center gap-2">
+                      <div>
+                        <span class="font-bold text-slate-900">${rep.memberName}</span> — <em>${rep.title}</em> (${rep.submittedAt})
+                        <div class="text-slate-600 text-[11px] mt-0.5">Tệp: <strong>${rep.fileName}</strong> ${rep.rejectReason ? `• <span class="text-red-700 font-semibold">Lý do từ chối: ${rep.rejectReason}</span>` : ''}</div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded font-bold ${rep.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-800' : (rep.status === 'REJECTED' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-900')}">
+                          ${rep.status === 'APPROVED' ? 'Đã duyệt' : (rep.status === 'REJECTED' ? 'Từ chối' : 'Đang chờ duyệt')}
+                        </span>
+                        <button type="button" onclick="reviewMemberReport('${rep.id}', 'APPROVED')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded shadow">Đọc & Duyệt</button>
+                        <button type="button" onclick="reviewMemberReport('${rep.id}', 'REJECTED')" class="bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded shadow">Từ chối</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-red-200">
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">Soạn báo cáo tự động từ dữ liệu gốc</h3>
+                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="space-y-3">
+                      <div>
+                        <label class="font-bold block mb-1 text-slate-700">1. Chọn loại văn bản</label>
+                        <select id="tpl-selector" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                          ${templateItems.map(i => `<option value="${i.key}">${i.name}</option>`).join('')}
+                        </select>
+                      </div>
+                      <div class="grid grid-cols-2 gap-2">
+                        <div>
+                          <label class="font-bold block mb-1 text-slate-700">Tháng</label>
+                          <select id="rpt-month" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                            ${Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')).map(m => `<option value="${m}" ${m === mm ? 'selected' : ''}>Tháng ${m}</option>`).join('')}
+                          </select>
+                        </div>
+                        <div>
+                          <label class="font-bold box-border block mb-1 text-slate-700">Năm</label>
+                          <input id="rpt-year" type="number" value="${yyyy}" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold" />
+                        </div>
+                      </div>
+                      <div>
+                        <label class="font-bold block mb-1 text-slate-700">2. Tải tệp gốc lên</label>
+                        <input type="file" accept="image/*,.doc,.docx,.txt" onchange="handleAiFileUpload(event)" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
+                      </div>
+                    </div>
+                    <div class="lg:col-span-2 flex flex-col justify-between space-y-3">
+                      <div>
+                        <label class="font-bold block mb-1 text-slate-700">3. Dữ liệu thô / Ghi chép:</label>
+                        <textarea id="ai-raw-input" rows="5" placeholder="Nhập ý chính biên bản họp..." class="w-full border border-slate-300 rounded-lg p-3 text-sm">${state.aiRawNotes}</textarea>
+                      </div>
+                      <div class="flex flex-wrap items-center justify-end gap-2">
+                        <button type="button" onclick="runAiDocumentSynthesis()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2 rounded-lg text-xs shadow">✨ Lập báo cáo</button>
+                        ${state.aiGeneratedOutput ? `
+                          <button type="button" onclick="downloadGeneratedWordDoc()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Tải Word (.doc)</button>
+                          <button type="button" onclick="state.printMode='AI_DOC'; render(); setTimeout(()=>window.print(), 150);" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 In PDF</button>
+                        ` : ''}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+
+          ${isAdmin && state.aiGeneratedOutput ? `
+            <div id="print-area" class="bg-white p-8 sm:p-12 rounded-xl shadow border border-slate-300 max-w-4xl mx-auto font-serif-vn text-slate-900 leading-relaxed text-sm">
+              <pre class="font-serif-vn whitespace-pre-wrap text-sm leading-relaxed">${state.aiGeneratedOutput}</pre>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function renderFees(user, isAdmin, paidCount, totalFeeCollected) {
+      const myRec = getMemberFeeRecord(user.id, REAL_PERIOD_KEY);
+
+      if (!isAdmin) {
+        return `
+          <div class="space-y-6">
+            <div class="bg-gradient-to-r from-red-900 to-red-800 text-white rounded-xl p-5 shadow-sm">
+              <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Thông tin Đảng phí cá nhân</div>
+              <h3 class="text-lg font-bold mt-0.5">Sổ theo dõi Đảng phí Tháng ${REAL_MONTH_STR}/${REAL_YEAR} — Đồng chí ${user.fullName}</h3>
+              <p class="text-xs text-red-100 mt-1">Tổ Đảng: ${user.partyGroup} • Mã Đảng viên: ${user.id}</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div>
+                  <div class="text-xs text-slate-500 uppercase font-semibold">Kỳ thu Đảng phí</div>
+                  <div class="text-lg font-bold text-slate-900">Tháng ${REAL_MONTH_STR} năm ${REAL_YEAR}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500 uppercase font-semibold">Số tiền đóng</div>
+                  <div class="text-lg font-bold text-red-700">${formatVND(myRec.amount)}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500 uppercase font-semibold">Trạng thái</div>
+                  <div class="mt-1">
+                    ${myRec.paid
+                      ? `<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-600 text-white">✓ Đã nộp Đảng phí</span>`
+                      : `<span class="px-3 py-1 rounded-full text-xs font-bold bg-red-600 text-white">Chưa nộp Đảng phí</span>`}
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
+                <div>
+                  ${myRec.paid
+                    ? `Ngày xác nhận nộp: <strong>${myRec.paidDate}</strong> • Mã giao dịch Cổng TTHC Đảng: <strong>${myRec.portalRef}</strong>`
+                    : `Đồng chí vui lòng thực hiện nộp Đảng phí qua Cổng TTHC Đảng và bấm nút báo nộp bên cạnh.`}
+                </div>
+                <div>
+                  ${!myRec.paid
+                    ? `<button onclick="submitSelfPartyFee('${user.id}', false)" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow">💳 Báo nộp Đảng phí tháng ${REAL_MONTH_STR}/${REAL_YEAR}</button>`
+                    : `<button onclick="submitSelfPartyFee('${user.id}', false)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow">✓ Cập nhật lại thông tin nộp</button>`}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-red-900 to-red-800 text-white rounded-xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4 no-print">
+            <div>
+              <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Quản lý thu nộp Đảng phí toàn Chi bộ (Admin)</div>
+              <h3 class="text-lg font-bold mt-0.5">Sổ thu nộp Đảng phí Tháng ${REAL_MONTH_STR}/${REAL_YEAR} — Chi bộ 26 (44 Đảng viên)</h3>
+              <p class="text-xs text-red-100 mt-1">
+                Đã nộp: <strong>${paidCount}/44</strong> ĐV •
+                Chưa nộp: <strong>${44 - paidCount}/44</strong> ĐV •
+                Tổng thu: <strong>${formatVND(totalFeeCollected)}</strong>
+              </p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button onclick="exportJSONData()" class="bg-amber-400 hover:bg-amber-300 text-red-950 font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Xuất gói liên thông JSON</button>
+              <button onclick="printFeeSummaryPDF()" class="bg-white hover:bg-slate-100 text-red-900 font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 Xuất danh sách thống kê nộp Đảng phí (PDF)</button>
+              <button onclick="sendQuickFeeMessage(${paidCount}, ${44 - paidCount}, '${formatVND(totalFeeCollected)}')" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">💬 Xuất tin nhắn gửi nhanh đôn đốc</button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden no-print">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                    <th class="p-3">STT</th>
+                    <th class="p-3">Họ và tên Đảng viên</th>
+                    <th class="p-3">Tổ Đảng</th>
+                    <th class="p-3">Số tiền nộp</th>
+                    <th class="p-3">Trạng thái Tháng ${REAL_MONTH_STR}/${REAL_YEAR}</th>
+                    <th class="p-3">Ngày nộp & Mã GD</th>
+                    <th class="p-3 text-right">Hành động Admin</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  ${state.members.map(m => {
+                    const rec = getMemberFeeRecord(m.id, REAL_PERIOD_KEY);
+                    return `
+                      <tr class="${rec.paid ? 'bg-emerald-50/30' : 'bg-red-50/30'} hover:bg-slate-100/70">
+                        <td class="p-3 font-semibold">${m.stt}</td>
+                        <td class="p-3 font-bold text-slate-900">${m.fullName}</td>
+                        <td class="p-3 text-slate-600">${m.partyGroup}</td>
+                        <td class="p-3 font-bold">${formatVND(rec.amount)}</td>
+                        <td class="p-3">
+                          ${rec.paid
+                            ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-600 text-white">✓ Đã nộp</span>`
+                            : `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-red-600 text-white">x Chưa nộp</span>`}
+                        </td>
+                        <td class="p-3 text-slate-600">${rec.paid ? `${rec.paidDate} • ${rec.portalRef}` : '—'}</td>
+                        <td class="p-3 text-right space-x-1 whitespace-nowrap">
+                          <button onclick="toggleFeeStatusAdmin('${m.id}')" class="border border-slate-300 bg-white hover:bg-slate-50 px-3 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">Đảo trạng thái nộp</button>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="print-area" class="bg-white p-8 rounded-xl shadow border border-slate-300 max-w-4xl mx-auto font-serif-vn text-slate-900 text-xs sm:text-sm">
+            <div class="flex justify-between items-start text-center mb-5">
+              <div>
+                <div class="font-bold uppercase">ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO</div>
+                <div class="font-bold uppercase underline underline-offset-4">CHI BỘ 26</div>
+              </div>
+              <div>
+                <div class="font-bold uppercase">ĐẢNG CỘNG SẢN VIỆT NAM</div>
+                <div class="italic mt-1">Đặc khu Côn Đảo, ngày ${String(REAL_DAY).padStart(2,'0')} tháng ${REAL_MONTH_STR} năm ${REAL_YEAR}</div>
+              </div>
+            </div>
+            <div class="text-center my-4">
+              <div class="font-bold uppercase text-base">DANH SÁCH THỐNG KÊ TÌNH HÌNH NỘP ĐẢNG PHÍ</div>
+              <div class="font-bold">Tháng ${REAL_MONTH_STR} năm ${REAL_YEAR} (Phục vụ công tác đôn đốc hoàn thành nghĩa vụ Đảng phí)</div>
+              <div class="text-xs mt-1">Tổng số: 44 Đảng viên • Đã nộp: <strong>${paidCount}</strong> đồng chí • Chưa nộp: <strong>${44 - paidCount}</strong> đồng chí • Tổng thu: <strong>${formatVND(totalFeeCollected)}</strong></div>
+            </div>
+            <table class="w-full border-collapse border border-slate-800 text-xs mt-3">
+              <thead>
+                <tr class="bg-slate-100">
+                  <th class="border border-slate-800 p-1.5 text-center">STT</th>
+                  <th class="border border-slate-800 p-1.5 text-left">Họ và tên Đảng viên</th>
+                  <th class="border border-slate-800 p-1.5 text-center">Tổ Đảng</th>
+                  <th class="border border-slate-800 p-1.5 text-right">Số tiền</th>
+                  <th class="border border-slate-800 p-1.5 text-center">Tình trạng nộp</th>
+                  <th class="border border-slate-800 p-1.5 text-center">Ngày nộp / Ghi chú</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${state.members.map(m => {
+                  const rec = getMemberFeeRecord(m.id, REAL_PERIOD_KEY);
+                  return `
+                    <tr>
+                      <td class="border border-slate-800 p-1.5 text-center">${m.stt}</td>
+                      <td class="border border-slate-800 p-1.5 font-bold">${m.fullName}</td>
+                      <td class="border border-slate-800 p-1.5 text-center">${m.partyGroup}</td>
+                      <td class="border border-slate-800 p-1.5 text-right">${formatVND(rec.amount)}</td>
+                      <td class="border border-slate-800 p-1.5 text-center font-bold">${rec.paid ? 'Đã nộp' : 'Chưa nộp (Đề nghị nộp gấp)'}</td>
+                      <td class="border border-slate-800 p-1.5 text-center">${rec.paid ? rec.paidDate : 'Chưa hoàn thành'}</td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+            <div class="flex justify-between mt-6 pt-2">
+              <div class="text-xs italic">Đề nghị các đồng chí chưa hoàn thành sớm nộp Đảng phí qua Cổng TTHC Đảng theo quy định.</div>
+              <div class="text-center">
+                <div class="font-bold uppercase text-xs">T/M CHI ỦY CHI BỘ 26</div>
+                <div class="h-12"></div>
+                <div class="font-bold text-xs">Nguyễn Anh Tuấn</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDocuments(user, isAdmin) {
+      return `
+        <div class="space-y-6">
+          ${isAdmin ? `
+            <div class="bg-white rounded-xl shadow-sm border-2 border-blue-700 p-5">
+              <h2 class="text-base font-bold text-slate-900">📚 Gửi Văn bản, Tài liệu cho Đảng viên nghiên cứu 03 ngày trước khi họp</h2>
+              <form onsubmit="sendStudyDocument(event)" class="mt-3 space-y-3 text-xs">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div>
+                    <label class="font-bold block mb-1">Kỳ sinh hoạt</label>
+                    <select id="doc-meeting-id" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                      ${state.meetings.map(m => `<option value="${m.id}">${m.date} - ${m.title}</option>`).join('')}
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-bold block mb-1">Loại tài liệu</label>
+                    <select id="doc-type" class="w-full border border-slate-300 rounded-lg px-3 py-2">
+                      <option value="Dự thảo Nghị quyết / Báo cáo">Dự thảo Nghị quyết / Báo cáo</option>
+                      <option value="Văn bản chỉ đạo Đảng ủy">Văn bản chỉ đạo Đảng ủy</option>
+                      <option value="Tài liệu sinh hoạt chuyên đề">Tài liệu sinh hoạt chuyên đề</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-bold block mb-1">Đính kèm tệp</label>
+                    <input id="doc-file-input" type="file" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
+                  </div>
+                </div>
+                <input id="doc-title" type="text" required placeholder="Tiêu đề tài liệu nghiên cứu..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" />
+                <input id="doc-summary" type="text" placeholder="Tóm tắt nội dung trọng tâm..." class="w-full border border-slate-300 rounded-lg px-3 py-2" />
+                <textarea id="doc-content-full" rows="3" placeholder="Nội dung chi tiết văn bản..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></textarea>
+                <div class="flex justify-end">
+                  <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-5 py-2 rounded-lg shadow">📤 Phát hành tài liệu tới 44 Đảng viên</button>
+                </div>
+              </form>
+            </div>
+          ` : ''}
+
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+            <h3 class="font-bold text-slate-900">Kho Tài liệu nghiên cứu trước 3 ngày (${state.documents.length} văn bản)</h3>
+            ${state.documents.map(doc => {
+              const isViewing = state.viewingDocId === doc.id;
+              return `
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                  <div class="flex flex-wrap justify-between items-start gap-2">
+                    <div>
+                      <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-900 text-[11px] font-bold">${doc.docType}</span>
+                      <span class="text-xs text-slate-500 ml-2">Phát hành: <strong>${doc.releaseDate}</strong></span>
+                      <h4 class="font-bold text-slate-900 mt-1">${doc.title}</h4>
+                      <p class="text-xs text-slate-600 mt-1">${doc.summary}</p>
+                    </div>
+                    <div class="flex gap-2">
+                      <button onclick="markDocAsRead('${doc.id}')" class="bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg">${isViewing ? 'Thu gọn' : '📖 Đọc'}</button>
+                      <button onclick="downloadDocFile('${doc.id}')" class="bg-blue-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg">⬇ Tải về</button>
+                    </div>
+                  </div>
+                  ${isViewing ? `<div class="mt-3 p-4 rounded-lg bg-white border border-slate-300 text-xs whitespace-pre-line font-serif-vn">${doc.contentFull}</div>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAttendance(user, isAdmin, activeMeeting) {
+      return `
+        <div class="space-y-6">
+          <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-3">📋 Danh sách đơn xin vắng mặt (${state.leaveRequests.length})</h3>
+            <div class="space-y-2.5">
+              ${state.leaveRequests.map(r => `
+                <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 text-xs flex flex-wrap justify-between items-center gap-2">
+                  <div>
+                    <span class="font-bold text-slate-900">${r.memberName}</span> (${r.memberId}) — <em>${r.meetingTitle}</em>
+                    <div class="text-slate-700 mt-0.5"><strong>Lý do:</strong> ${r.reason}</div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded font-bold ${r.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-800' : (r.status === 'REJECTED' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-800')}">
+                      ${r.status === 'APPROVED' ? 'Đã duyệt phép' : (r.status === 'REJECTED' ? 'Không duyệt' : 'Chờ duyệt')}
+                    </span>
+                    ${isAdmin && r.status === 'PENDING' ? `
+                      <button onclick="reviewLeaveRequest('${r.id}', 'APPROVED')" class="bg-emerald-600 text-white px-2.5 py-1 rounded font-semibold">Duyệt</button>
+                      <button onclick="reviewLeaveRequest('${r.id}', 'REJECTED')" class="bg-red-600 text-white px-2.5 py-1 rounded font-semibold">Từ chối</button>
+                    ` : ''}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-200 flex flex-wrap justify-between items-center gap-2">
+              <h3 class="font-bold text-slate-900">Bảng điểm danh 44 Đảng viên (${activeMeeting.title})</h3>
+              <select onchange="state.selectedMeetingId=this.value; render();" class="border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold">
+                ${state.meetings.map(m => `<option value="${m.id}" ${m.id === activeMeeting.id ? 'selected' : ''}>${m.date} - ${m.title}</option>`).join('')}
+              </select>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                    <th class="p-3">STT</th>
+                    <th class="p-3">Họ và tên</th>
+                    <th class="p-3">Tổ Đảng</th>
+                    <th class="p-3">Trạng thái</th>
+                    ${isAdmin ? '<th class="p-3 text-right">Admin duyệt</th>' : ''}
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  ${state.members.map(m => {
+                    const st = (state.attendance[m.id] && state.attendance[m.id][activeMeeting.id]) || 'PENDING';
+                    const badge = st === 'PRESENT' ? '<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">Có mặt</span>'
+                      : st === 'EXCUSED' ? '<span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold">Vắng có phép</span>'
+                      : st === 'UNEXCUSED' ? '<span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold">Vắng không phép</span>'
+                      : '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600">Chưa điểm danh</span>';
+                    return `
+                      <tr>
+                        <td class="p-3">${m.stt}</td>
+                        <td class="p-3 font-bold">${m.fullName}</td>
+                        <td class="p-3">${m.partyGroup}</td>
+                        <td class="p-3">${badge}</td>
+                        ${isAdmin ? `
+                          <td class="p-3 text-right space-x-1">
+                            <button onclick="setAttendance('${m.id}', '${activeMeeting.id}', 'PRESENT')" class="px-2 py-1 rounded bg-emerald-600 text-white">Có mặt</button>
+                            <button onclick="setAttendance('${m.id}', '${activeMeeting.id}', 'EXCUSED')" class="px-2 py-1 rounded bg-blue-600 text-white">Có phép</button>
+                          </td>
+                        ` : ''}
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderEvaluation(isAdmin, cleanDone, cleanDoing, cleanNot) {
+      const activeM = state.meetings.find(m => m.id === state.selectedMeetingId) || state.meetings[0];
+      let pCount = 0, eCount = 0, uCount = 0;
+      state.members.forEach(m => {
+        const st = (state.attendance[m.id] && state.attendance[m.id][activeM.id]) || 'PENDING';
+        if (st === 'PRESENT') pCount++;
+        else if (st === 'EXCUSED') eCount++;
+        else if (st === 'UNEXCUSED') uCount++;
+      });
+      const total = state.members.length;
+      const rateP = ((pCount / total) * 100).toFixed(1);
+
+      return `
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-red-900 to-red-800 text-white rounded-2xl p-5 shadow">
+            <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Hệ thống theo dõi & đánh giá</div>
+            <h2 class="text-lg sm:text-xl font-bold mt-1">📊 Đánh giá chất lượng sinh hoạt Chi bộ 26</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div onclick="alert('Chi tiết Sinh hoạt định kỳ: Có mặt ${pCount}/44 (${rateP}%), Vắng có phép: ${eCount}, Vắng không phép: ${uCount}')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 1: Sinh hoạt định kỳ</div>
+              <div class="text-xl font-bold text-red-700 mt-2">Tỷ lệ: ${rateP}%</div>
+              <div class="text-xs text-slate-600 mt-1">Có mặt: ${pCount} • Vắng: ${eCount + uCount} (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Chi tiết Sinh hoạt chuyên đề: Tỷ lệ tham gia đạt 95.5% (42/44 đồng chí có mặt)')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 2: Sinh hoạt chuyên đề</div>
+              <div class="text-xl font-bold text-blue-700 mt-2">Tỷ lệ: 95.5%</div>
+              <div class="text-xs text-slate-600 mt-1">Đã hoàn thành chỉ tiêu (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Chi tiết Học tập Nghị quyết: 100% Đảng viên hoàn thành nghiên cứu và kiểm tra trực tuyến')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 3: Học tập Nghị quyết</div>
+              <div class="text-xl font-bold text-emerald-700 mt-2">Tỷ lệ: 100%</div>
+              <div class="text-xs text-slate-600 mt-1">Đạt yêu cầu đợt sinh hoạt (Bấm xem chi tiết)</div>
+            </div>
+            <div onclick="alert('Khung 4: Tiến độ chuẩn hóa dữ liệu Đảng viên trên Sổ tay điện tử')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+              <div class="text-xs font-bold text-slate-500 uppercase">Khung 4: Nội dung liên quan khác</div>
+              <div class="text-sm font-bold text-slate-900 mt-2">Chuẩn hóa dữ liệu Đảng viên</div>
+              <div class="text-xs text-slate-600 mt-1">${cleanDone} Đã sạch • ${cleanDoing} Đang làm • ${cleanNot} Chưa làm</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+            <h3 class="font-bold text-slate-900 text-sm uppercase">📋 Tổng hợp Tiến độ Chuẩn hóa dữ liệu & Chỉ đạo từ Chi ủy</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-semibold">
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900">✓ 26 Đã sạch (${((26/44)*100).toFixed(1)}%)</div>
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-900">⏳ 13 Đang làm (${((13/44)*100).toFixed(1)}%)</div>
+              <div class="p-3 rounded-xl bg-red-50 border border-red-300 text-red-900">! 5 Chưa làm (${((5/44)*100).toFixed(1)}%)</div>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <button type="button" onclick="printEvaluationListPDF()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 Đọc danh sách (Xuất bản PDF)</button>
+              ${isAdmin ? '<span class="text-xs text-slate-500 italic">Admin có quyền tải lên nội dung chỉ đạo mới bên dưới.</span>' : ''}
+            </div>
+            ${isAdmin ? `
+              <div class="mt-4 pt-4 border-t border-slate-200 space-y-2">
+                <label class="block text-xs font-bold text-slate-700 uppercase">Ý kiến chỉ đạo / Cập nhật nhiệm vụ mới (Tối đa 550 ký tự):</label>
+                <textarea rows="3" maxlength="550" placeholder="Nhập chỉ đạo mới triển khai cho các Tổ Đảng..." class="w-full border border-slate-300 rounded-lg p-3 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"></textarea>
+                <div class="flex justify-between items-center">
+                  <input type="file" class="text-xs border border-slate-300 rounded-lg p-1 bg-slate-50" />
+                  <button type="button" onclick="showToast('Đã lưu và cập nhật chỉ đạo mới tới toàn thể Chi bộ!')" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">📤 Cập nhật nhiệm vụ</button>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function exportJSONData() {
+      const payload = {
+        system: 'CHIBO26_CONDAO_PORTAL_SYNC',
+        exportedAt: new Date().toISOString(),
+        period: REAL_PERIOD_KEY,
+        unit: 'Chi bộ 26 - Đảng ủy Đặc khu Côn Đảo',
+        totalMembers: state.members.length,
+        members: state.members,
+        fees: state.fees,
+        attendance: state.attendance
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `LienThong_ChiBo26_Thang_${REAL_MONTH_STR}_${REAL_YEAR}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Đã xuất gói dữ liệu liên thông JSON!');
     }
 
     render();
