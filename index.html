@@ -101,8 +101,8 @@
     const PREV_MONTH_STR = String(PREV_DATE.getMonth() + 1).padStart(2, '0');
     const PREV_YEAR = PREV_DATE.getFullYear();
 
-    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V12_FINAL';
-    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V12_FINAL';
+    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V13_FINAL';
+    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V13_FINAL';
 
     const PARTY_FLAG_SVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-lg shadow border-2 border-amber-300 shrink-0">
@@ -194,9 +194,7 @@
             time: '19:00',
             location: 'Nhà văn hóa Khu dân cư số 3 - Đặc khu Côn Đảo',
             selfCheckinOpen: true,
-            agenda: `1. Đánh giá tình hình tư tưởng, kết quả thực hiện Nghị quyết tháng ${PREV_MONTH_STR}/${PREV_YEAR}.
-2. Triển khai nhiệm vụ trọng tâm tháng ${REAL_MONTH_STR}/${REAL_YEAR} và tiến độ chuẩn hóa dữ liệu 44 Đảng viên.
-3. Thu Đảng phí và biểu quyết thông qua Nghị quyết Chi bộ.`
+            agenda: `1. Đánh giá tình hình tư tưởng, kết quả thực hiện Nghị quyết tháng ${PREV_MONTH_STR}/${PREV_YEAR}.\n2. Triển khai nhiệm vụ trọng tâm tháng ${REAL_MONTH_STR}/${REAL_YEAR} và tiến độ chuẩn hóa dữ liệu 44 Đảng viên.\n3. Thu Đảng phí và biểu quyết thông qua Nghị quyết Chi bộ.`
           },
           {
             id: 'CD-CURRENT',
@@ -206,8 +204,7 @@
             time: '19:30',
             location: 'Hội trường Khu dân cư số 3 - Đặc khu Côn Đảo',
             selfCheckinOpen: true,
-            agenda: '1. Quán triệt Nghị quyết mới của Đảng ủy Đặc khu Côn Đảo.
-2. Hướng dẫn sử dụng Sổ tay Đảng viên điện tử và Cổng TTHC Đảng.'
+            agenda: '1. Quán triệt Nghị quyết mới của Đảng ủy Đặc khu Côn Đảo.\n2. Hướng dẫn sử dụng Sổ tay Đảng viên điện tử và Cổng TTHC Đảng.'
           }
         ],
         invitations: [
@@ -228,10 +225,7 @@
             author: 'Nguyễn Anh Tuấn (Bí thư Chi bộ)',
             postedAt: `15/${REAL_MONTH_STR}/${REAL_YEAR} 09:00`,
             summary: 'Đảng ủy Đặc khu Côn Đảo chỉ đạo 100% chi bộ trực thuộc ứng dụng công nghệ thông tin trong quản lý hồ sơ đảng viên, thu nộp đảng phí qua Cổng DVC Quốc gia và chuẩn hóa dữ liệu đảng viên.',
-            content: 'Thực hiện Kế hoạch của Ban Thường vụ Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chi bộ trong tình hình mới, Chi ủy Chi bộ 26 đề nghị toàn thể 44 đồng chí Đảng viên:
-1. Hoàn thành việc rà soát, đối chiếu thông tin cá nhân để đạt tỷ lệ 100% dữ liệu "Đã làm sạch".
-2. Thực hiện nộp Đảng phí định kỳ hằng tháng qua Cổng Dịch vụ công TTHC Đảng và cập nhật trạng thái trên ứng dụng Chi bộ.
-3. Tích cực nghiên cứu các dự thảo báo cáo, nghị quyết được đăng tải trên Bản tin Chi bộ trước mỗi kỳ họp 03 ngày.',
+            content: 'Thực hiện Kế hoạch của Ban Thường vụ Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chi bộ trong tình hình mới, Chi ủy Chi bộ 26 đề nghị toàn thể 44 đồng chí Đảng viên:\n1. Hoàn thành việc rà soát, đối chiếu thông tin cá nhân để đạt tỷ lệ 100% dữ liệu "Đã làm sạch".\n2. Thực hiện nộp Đảng phí định kỳ hằng tháng qua Cổng Dịch vụ công TTHC Đảng và cập nhật trạng thái trên ứng dụng Chi bộ.\n3. Tích cực nghiên cứu các dự thảo báo cáo, nghị quyết được đăng tải trên Bản tin Chi bộ trước mỗi kỳ họp 03 ngày.',
             imageUrl: '',
             attachmentName: 'KeHoach_ChuyenDoiSo_DangUyConDao.txt',
             attachmentDataUrl: '',
@@ -261,12 +255,7 @@
             releaseDate: `25/${PREV_MONTH_STR}/${PREV_YEAR}`,
             uploadedBy: 'Phan Kiều Diễm (Chi ủy viên)',
             summary: 'Tài liệu phục vụ Đảng viên nghiên cứu trước 03 ngày khi họp định kỳ mùng 03 đầu tháng.',
-            contentFull: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26
-DỰ THẢO BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG THÁNG ${PREV_MONTH_STR}/${PREV_YEAR}
-
-1. Công tác chính trị tư tưởng: 44/44 Đảng viên giữ vững lập trường, chấp hành tốt chủ trương của Đảng, pháp luật của Nhà nước.
-2. Công tác xây dựng Đảng: Duy trì nền nếp sinh hoạt định kỳ vào ngày mùng 03 hằng tháng; theo dõi chặt chẽ tiến độ làm sạch dữ liệu Đảng viên.
-3. Công tác Đảng phí: Đôn đốc hoàn thành thu nộp qua Cổng TTHC Đảng đúng quy định.`,
+            contentFull: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26\nDỰ THẢO BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG THÁNG ${PREV_MONTH_STR}/${PREV_YEAR}\n\n1. Công tác chính trị tư tưởng: 44/44 Đảng viên giữ vững lập trường, chấp hành tốt chủ trương của Đảng, pháp luật của Nhà nước.\n2. Công tác xây dựng Đảng: Duy trì nền nếp sinh hoạt định kỳ vào ngày mùng 03 hằng tháng; theo dõi chặt chẽ tiến độ làm sạch dữ liệu Đảng viên.\n3. Công tác Đảng phí: Đôn đốc hoàn thành thu nộp qua Cổng TTHC Đảng đúng quy định.`,
             fileName: `DuThao_BaoCao_Thang_${PREV_MONTH_STR}_${PREV_YEAR}.txt`,
             fileDataUrl: '',
             readBy: ['DV16', 'DV14', 'DV15']
@@ -409,8 +398,7 @@ DỰ THẢO BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG THÁNG ${PREV_MONTH_STR}/${PREV
 
       const defaultAmt = target.monthlyFee || 80000;
       const inputAmt = prompt(
-        `Xác nhận báo nộp Đảng phí tháng ${REAL_PERIOD_KEY} cho Đ/c ${target.fullName}:
-Nhập số tiền thực nộp (VNĐ):`,
+        `Xác nhận báo nộp Đảng phí tháng ${REAL_PERIOD_KEY} cho Đ/c ${target.fullName}:\nNhập số tiền thực nộp (VNĐ):`,
         String(defaultAmt)
       );
       if (inputAmt === null) return;
@@ -606,8 +594,7 @@ Nhập số tiền thực nộp (VNĐ):`,
         reader.onload = function(ev) {
           state.aiUploadedImagePreview = ev.target.result;
           if (!state.aiRawNotes.trim()) {
-            state.aiRawNotes = `[Đã tải lên ảnh chụp biên bản/tài liệu gốc: ${file.name}]
-- Nội dung trích xuất gợi ý: Cuộc họp Chi bộ 26 thống nhất đánh giá kết quả thực hiện nhiệm vụ tháng qua, biểu quyết thông qua các chỉ tiêu trọng tâm tháng tới với 100% Đảng viên có mặt tán thành.`;
+            state.aiRawNotes = `[Đã tải lên ảnh chụp biên bản/tài liệu gốc: ${file.name}]\n- Nội dung trích xuất gợi ý: Cuộc họp Chi bộ 26 thống nhất đánh giá kết quả thực hiện nhiệm vụ tháng qua, biểu quyết thông qua các chỉ tiêu trọng tâm tháng tới với 100% Đảng viên có mặt tán thành.`;
           }
           render();
           showToast('Đã tiếp nhận ảnh chụp biên bản gốc!');
@@ -617,11 +604,10 @@ Nhập số tiền thực nộp (VNĐ):`,
         const reader = new FileReader();
         reader.onload = function(ev) {
           const text = ev.target.result;
-          if (text && typeof text === 'string' && !text.includes(' ')) {
+          if (text && typeof text === 'string' && !text.includes(' ')) {
             state.aiRawNotes = text.slice(0, 6000);
           } else {
-            state.aiRawNotes = `[Đã tiếp nhận tệp Word/tài liệu gốc: ${file.name}]
-- Dữ liệu gốc đã sẵn sàng để biên soạn chuẩn thể thức văn bản Đảng.`;
+            state.aiRawNotes = `[Đã tiếp nhận tệp Word/tài liệu gốc: ${file.name}]\n- Dữ liệu gốc đã sẵn sàng để biên soạn chuẩn thể thức văn bản Đảng.`;
           }
           state.aiUploadedImagePreview = '';
           render();
@@ -642,176 +628,25 @@ Nhập số tiền thực nộp (VNĐ):`,
       const cleanNot = state.members.filter(m => m.cleanStatus === 'Chưa làm sạch').length;
 
       const formattedLines = raw
-        ? raw.split('
-').filter(l => l.trim()).map(l => '- ' + l.trim().replace(/^[-+*•]\s*/, '')).join('
-')
+        ? raw.split('\n').filter(l => l.trim()).map(l => '- ' + l.trim().replace(/^[-+*•]\s*/, '')).join('\n')
         : '';
 
       const extraSection = formattedLines
-        ? `
-
-[NỘI DUNG BIÊN SOẠN TỪ DỮ LIỆU GỐC (${state.aiUploadedFileName || 'Ghi chép nhập tay'})]:
-${formattedLines}`
+        ? `\n\n[NỘI DUNG BIÊN SOẠN TỪ DỮ LIỆU GỐC (${state.aiUploadedFileName || 'Ghi chép nhập tay'})]:\n${formattedLines}`
         : '';
 
       const templates = {
-        BC_HOAT_DONG_25: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 25 tháng ${mm} năm ${yyyy}
-Số: ………-BC/CB
+        BC_HOAT_DONG_25: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 25 tháng ${mm} năm ${yyyy}\nSố: ………-BC/CB\n\n                                    BÁO CÁO\n        Tình hình hoạt động của Chi bộ 26 tháng ${mm} năm ${yyyy}\n        (Phục vụ kỳ họp sinh hoạt Chi bộ định kỳ ngày mùng 03 tháng sau)\n\nKính gửi: Ban Thường vụ Đảng ủy Đặc khu Côn Đảo.\n\nThực hiện quy chế làm việc của Chi bộ 26, Chi ủy báo cáo tình hình hoạt động tháng ${mm}/${yyyy} để trình hội nghị Chi bộ định kỳ ngày mùng 03 tháng sau như sau:\n\nI. ĐẶC ĐIỂM TÌNH HÌNH ĐẢNG VIÊN\n- Tổng số Đảng viên của Chi bộ: ${totalMembers} đồng chí (Chính thức: ${officialCount} đồng chí; Dự bị: ${reserveCount} đồng chí - Đ/c Nguyễn Tiến Văn Phái).\n- Cấp ủy Chi bộ gồm 03 đồng chí: Bí thư Nguyễn Anh Tuấn; Phó Bí thư Đoàn Thị Diệu Hiền; Chi ủy viên Phan Kiều Diễm.\n\nII. KẾT QUẢ LÃNH ĐẠO THỰC HIỆN NHIỆM VỤ THÁNG ${mm}/${yyyy}\n1. Công tác chính trị, tư tưởng: Toàn thể Đảng viên chấp hành nghiêm Cương lĩnh, Điều lệ Đảng, Nghị quyết của Đảng ủy Đặc khu Côn Đảo; giữ vững đoàn kết nội bộ tại Khu dân cư số 3.\n2. Công tác thu, nộp Đảng phí: Tính đến ngày 25/${mm}/${yyyy}, đã có ${paidList.length}/${totalMembers} đồng chí hoàn thành nộp Đảng phí qua Cổng TTHC Đảng với tổng số tiền ${formatVND(totalCollected)}.\n3. Công tác chuẩn hóa dữ liệu Đảng viên: Đã làm sạch ${cleanDone}/44 đồng chí (${((cleanDone/44)*100).toFixed(2)}%); đang làm sạch ${cleanDoing}/44 đồng chí; chưa làm sạch ${cleanNot}/44 đồng chí.${extraSection}\n\nIII. PHƯƠNG HƯỚNG, NHIỆM VỤ TRỌNG TÂM THÁNG SAU\n1. Tổ chức tốt buổi sinh hoạt Chi bộ định kỳ vào đúng ngày mùng 03 tháng sau.\n2. Tiếp tục đôn đốc hoàn thành 100% chỉ tiêu thu Đảng phí và làm sạch dữ liệu Đảng viên trên Sổ tay Đảng viên điện tử.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
 
-                                    BÁO CÁO
-        Tình hình hoạt động của Chi bộ 26 tháng ${mm} năm ${yyyy}
-        (Phục vụ kỳ họp sinh hoạt Chi bộ định kỳ ngày mùng 03 tháng sau)
+        BIEN_BAN_HOP_04: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-BB/CB\n\n                            BIÊN BẢN HỌP CHI BỘ\n            Sinh hoạt Chi bộ định kỳ tháng ${mm} năm ${yyyy}\n\nI. THỜI GIAN, ĐỊA ĐIỂM, THÀNH PHẦN THAM DỰ\n1. Thời gian: Vào lúc 19 giờ 00 phút, ngày 03 tháng ${mm} năm ${yyyy}.\n2. Địa điểm: Nhà văn hóa Khu dân cư số 3, Đặc khu Côn Đảo.\n3. Thành phần:\n- Chủ tọa: Đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26.\n- Thư ký: Đồng chí Phan Kiều Diễm – Chi ủy viên.\n- Tổng số Đảng viên triệu tập: ${totalMembers} đồng chí (Chính thức: ${officialCount}; Dự bị: ${reserveCount}).\n- Có mặt: ……… đồng chí; Vắng có phép: ……… đồng chí; Vắng không phép: 0 đồng chí.\n\nII. NỘI DUNG CUỘC HỌP\n1. Đồng chí Bí thư Chi bộ tuyên bố lý do, thông qua chương trình sinh hoạt định kỳ tháng ${mm}/${yyyy} và thông tin tình hình thời sự, văn bản chỉ đạo mới của Đảng ủy Đặc khu Côn Đảo.\n2. Đồng chí Phó Bí thư Đoàn Thị Diệu Hiền trình bày dự thảo Báo cáo tình hình hoạt động của Chi bộ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy}.\n3. Thảo luận của Đảng viên:${extraSection || '\n- Các đồng chí Đảng viên thống nhất cao với dự thảo báo cáo; tập trung thảo luận giải pháp giữ gìn an ninh trật tự, vệ sinh môi trường tại KDC số 3 và hoàn thiện làm sạch dữ liệu Đảng viên.'}\n\nIII. BIỂU QUYẾT THÔNG QUA NGHỊ QUYẾT\n- Số Đảng viên tán thành: ………/${totalMembers} đồng chí (đạt 100% số có mặt).\n- Số không tán thành: 0 đồng chí.\nCuộc họp kết thúc vào lúc 20 giờ 30 phút cùng ngày./.\n\n        THƯ KÝ                                        CHỦ TỌA\n   (Ký, ghi rõ họ tên)                            (Ký, ghi rõ họ tên)\n\n    Phan Kiều Diễm                                 Nguyễn Anh Tuấn`,
 
-Kính gửi: Ban Thường vụ Đảng ủy Đặc khu Côn Đảo.
+        CHAM_DIEM_SHCB: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\n\n                BẢNG TỰ CHẤM ĐIỂM CHẤT LƯỢNG SINH HOẠT CHI BỘ\n                    Kỳ sinh hoạt định kỳ tháng ${mm} năm ${yyyy}\n            (Ban hành kèm theo Hướng dẫn của Ban Tổ chức Trung ương)\n\n| STT | Tiêu chí đánh giá chất lượng sinh hoạt Chi bộ | Điểm tối đa | Chi bộ tự chấm |\n|-----|-----------------------------------------------|-------------|----------------|\n|  1  | Công tác chuẩn bị sinh hoạt (Họp Chi ủy, gửi tài liệu trước 3 ngày) | 15 điểm | 15 điểm |\n|  2  | Tổ chức sinh hoạt đúng ngày mùng 03, tỷ lệ Đảng viên tham dự cao | 15 điểm | 14 điểm |\n|  3  | Nội dung sinh hoạt toàn diện (Chính trị tư tưởng, thực hiện nhiệm vụ) | 25 điểm | 24 điểm |\n|  4  | Thực hiện nguyên tắc tập trung dân chủ, tự phê bình và phê bình | 20 điểm | 19 điểm |\n|  5  | Chất lượng thảo luận, đóng góp ý kiến của Đảng viên tại cuộc họp | 15 điểm | 14 điểm |\n|  6  | Ban hành Nghị quyết, phân công nhiệm vụ và ghi chép Biên bản đầy đủ | 10 điểm | 10 điểm |\n|     | TỔNG CỘNG ĐIỂM ĐẠT ĐƯỢC (Xếp loại: TỐT) | 100 điểm | 96 điểm |\n\nGhi chú bổ sung từ thực tế kỳ họp:${extraSection || '\n- Chi bộ duy trì nghiêm túc việc gửi dự thảo báo cáo trước 3 ngày và điểm danh điện tử.'}\n\n                                                     T/M CHI BỘ 26\n                                                        BÍ THƯ\n                                                   Nguyễn Anh Tuấn`,
 
-Thực hiện quy chế làm việc của Chi bộ 26, Chi ủy báo cáo tình hình hoạt động tháng ${mm}/${yyyy} để trình hội nghị Chi bộ định kỳ ngày mùng 03 tháng sau như sau:
+        KET_LUAN_BI_THU: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-TB/CB\n\n                                THÔNG BÁO\n        Kết luận của đồng chí Bí thư Chi bộ tại kỳ sinh hoạt tháng ${mm}/${yyyy}\n\nTại kỳ sinh hoạt Chi bộ định kỳ ngày 03/${mm}/${yyyy}, sau khi nghe báo cáo tình hình hoạt động và ý kiến thảo luận của các đồng chí Đảng viên, đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26 kết luận và giao nhiệm vụ như sau:\n\n1. Về công tác chính trị, tư tưởng và tuyên truyền:\n- Giao đồng chí Đoàn Thị Diệu Hiền – Phó Bí thư Chi bộ tiếp tục đăng tải kịp thời các văn bản chỉ đạo của Đảng ủy Đặc khu Côn Đảo lên Bản tin Chi bộ để 44 Đảng viên nghiên cứu, thực hiện.\n\n2. Về công tác quản lý Đảng viên và thu nộp Đảng phí:\n- Giao đồng chí Phan Kiều Diễm – Chi ủy viên theo dõi, đôn đốc ${totalMembers - paidList.length} đồng chí còn lại hoàn thành nộp Đảng phí tháng ${mm}/${yyyy} qua Cổng TTHC Đảng trước ngày 18/${mm}/${yyyy}.\n- Các Tổ trưởng Tổ Đảng 1, 2, 3, 4 trực tiếp hỗ trợ ${cleanNot} đồng chí chưa làm sạch dữ liệu hoàn thành cập nhật hồ sơ.${extraSection}\n\n3. Tổ chức thực hiện:\n- Toàn thể 44 đồng chí Đảng viên nghiêm túc triển khai thực hiện và báo cáo kết quả tại kỳ sinh hoạt tiếp theo./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Toàn thể Đảng viên Chi bộ 26;                          BÍ THƯ\n- Lưu Chi bộ.                                      Nguyễn Anh Tuấn`,
 
-I. ĐẶC ĐIỂM TÌNH HÌNH ĐẢNG VIÊN
-- Tổng số Đảng viên của Chi bộ: ${totalMembers} đồng chí (Chính thức: ${officialCount} đồng chí; Dự bị: ${reserveCount} đồng chí - Đ/c Nguyễn Tiến Văn Phái).
-- Cấp ủy Chi bộ gồm 03 đồng chí: Bí thư Nguyễn Anh Tuấn; Phó Bí thư Đoàn Thị Diệu Hiền; Chi ủy viên Phan Kiều Diễm.
+        NGHI_QUYET_DINH_KY: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-NQ/CB\n\n                                NGHỊ QUYẾT\n            Lãnh đạo thực hiện nhiệm vụ chính trị tháng ${mm} năm ${yyyy}\n\nCăn cứ Điều lệ Đảng Cộng sản Việt Nam;\nCăn cứ Nghị quyết, Chương trình công tác năm ${yyyy} của Đảng ủy Đặc khu Côn Đảo;\nCăn cứ kết quả hội nghị sinh hoạt Chi bộ 26 ngày 03 tháng ${mm} năm ${yyyy},\n\n                        CHI BỘ 26 QUYẾT NGHỊ:\n\nI. Tán thành đánh giá tình hình thực hiện nhiệm vụ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy} do Chi ủy trình bày tại hội nghị.\nII. Tập trung lãnh đạo thực hiện các chỉ tiêu, nhiệm vụ trọng tâm tháng ${mm}/${yyyy}:\n1. 100% Đảng viên giữ vững phẩm chất chính trị, gương mẫu chấp hành quy định tại nơi cư trú (Khu dân cư số 3).\n2. Phấn đấu 100% Đảng viên hoàn thành nghĩa vụ đóng Đảng phí tháng ${mm}/${yyyy} đúng hạn và cập nhật đầy đủ trên Sổ tay Đảng viên điện tử.\n3. Hoàn thành công tác rà soát, làm sạch dữ liệu Đảng viên theo tiến độ Đảng ủy Đặc khu giao.${extraSection}\n\nIII. Giao Chi ủy Chi bộ 26 tổ chức triển khai, kiểm tra, đôn đốc toàn thể Đảng viên thực hiện thắng lợi Nghị quyết này.\nNghị quyết đã được Chi bộ 26 biểu quyết thông qua ngày 03/${mm}/${yyyy} với tỷ lệ 100% Đảng viên có mặt tán thành./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
 
-II. KẾT QUẢ LÃNH ĐẠO THỰC HIỆN NHIỆM VỤ THÁNG ${mm}/${yyyy}
-1. Công tác chính trị, tư tưởng: Toàn thể Đảng viên chấp hành nghiêm Cương lĩnh, Điều lệ Đảng, Nghị quyết của Đảng ủy Đặc khu Côn Đảo; giữ vững đoàn kết nội bộ tại Khu dân cư số 3.
-2. Công tác thu, nộp Đảng phí: Tính đến ngày 25/${mm}/${yyyy}, đã có ${paidList.length}/${totalMembers} đồng chí hoàn thành nộp Đảng phí qua Cổng TTHC Đảng với tổng số tiền ${formatVND(totalCollected)}.
-3. Công tác chuẩn hóa dữ liệu Đảng viên: Đã làm sạch ${cleanDone}/44 đồng chí (${((cleanDone/44)*100).toFixed(2)}%); đang làm sạch ${cleanDoing}/44 đồng chí; chưa làm sạch ${cleanNot}/44 đồng chí.${extraSection}
-
-III. PHƯƠNG HƯỚNG, NHIỆM VỤ TRỌNG TÂM THÁNG SAU
-1. Tổ chức tốt buổi sinh hoạt Chi bộ định kỳ vào đúng ngày mùng 03 tháng sau.
-2. Tiếp tục đôn đốc hoàn thành 100% chỉ tiêu thu Đảng phí và làm sạch dữ liệu Đảng viên trên Sổ tay Đảng viên điện tử.
-
-Nơi nhận:                                            T/M CHI BỘ 26
-- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
-- Toàn thể Đảng viên Chi bộ 26;
-- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
-
-        BIEN_BAN_HOP_04: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
-Số: ………-BB/CB
-
-                            BIÊN BẢN HỌP CHI BỘ
-            Sinh hoạt Chi bộ định kỳ tháng ${mm} năm ${yyyy}
-
-I. THỜI GIAN, ĐỊA ĐIỂM, THÀNH PHẦN THAM DỰ
-1. Thời gian: Vào lúc 19 giờ 00 phút, ngày 03 tháng ${mm} năm ${yyyy}.
-2. Địa điểm: Nhà văn hóa Khu dân cư số 3, Đặc khu Côn Đảo.
-3. Thành phần:
-- Chủ tọa: Đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26.
-- Thư ký: Đồng chí Phan Kiều Diễm – Chi ủy viên.
-- Tổng số Đảng viên triệu tập: ${totalMembers} đồng chí (Chính thức: ${officialCount}; Dự bị: ${reserveCount}).
-- Có mặt: ……… đồng chí; Vắng có phép: ……… đồng chí; Vắng không phép: 0 đồng chí.
-
-II. NỘI DUNG CUỘC HỌP
-1. Đồng chí Bí thư Chi bộ tuyên bố lý do, thông qua chương trình sinh hoạt định kỳ tháng ${mm}/${yyyy} và thông tin tình hình thời sự, văn bản chỉ đạo mới của Đảng ủy Đặc khu Côn Đảo.
-2. Đồng chí Phó Bí thư Đoàn Thị Diệu Hiền trình bày dự thảo Báo cáo tình hình hoạt động của Chi bộ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy}.
-3. Thảo luận của Đảng viên:${extraSection || '
-- Các đồng chí Đảng viên thống nhất cao với dự thảo báo cáo; tập trung thảo luận giải pháp giữ gìn an ninh trật tự, vệ sinh môi trường tại KDC số 3 và hoàn thiện làm sạch dữ liệu Đảng viên.'}
-
-III. BIỂU QUYẾT THÔNG QUA NGHỊ QUYẾT
-- Số Đảng viên tán thành: ………/${totalMembers} đồng chí (đạt 100% số có mặt).
-- Số không tán thành: 0 đồng chí.
-Cuộc họp kết thúc vào lúc 20 giờ 30 phút cùng ngày./.
-
-        THƯ KÝ                                        CHỦ TỌA
-   (Ký, ghi rõ họ tên)                            (Ký, ghi rõ họ tên)
-
-    Phan Kiều Diễm                                 Nguyễn Anh Tuấn`,
-
-        CHAM_DIEM_SHCB: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
-
-                BẢNG TỰ CHẤM ĐIỂM CHẤT LƯỢNG SINH HOẠT CHI BỘ
-                    Kỳ sinh hoạt định kỳ tháng ${mm} năm ${yyyy}
-            (Ban hành kèm theo Hướng dẫn của Ban Tổ chức Trung ương)
-
-| STT | Tiêu chí đánh giá chất lượng sinh hoạt Chi bộ | Điểm tối đa | Chi bộ tự chấm |
-|-----|-----------------------------------------------|-------------|----------------|
-|  1  | Công tác chuẩn bị sinh hoạt (Họp Chi ủy, gửi tài liệu trước 3 ngày) | 15 điểm | 15 điểm |
-|  2  | Tổ chức sinh hoạt đúng ngày mùng 03, tỷ lệ Đảng viên tham dự cao | 15 điểm | 14 điểm |
-|  3  | Nội dung sinh hoạt toàn diện (Chính trị tư tưởng, thực hiện nhiệm vụ) | 25 điểm | 24 điểm |
-|  4  | Thực hiện nguyên tắc tập trung dân chủ, tự phê bình và phê bình | 20 điểm | 19 điểm |
-|  5  | Chất lượng thảo luận, đóng góp ý kiến của Đảng viên tại cuộc họp | 15 điểm | 14 điểm |
-|  6  | Ban hành Nghị quyết, phân công nhiệm vụ và ghi chép Biên bản đầy đủ | 10 điểm | 10 điểm |
-|     | TỔNG CỘNG ĐIỂM ĐẠT ĐƯỢC (Xếp loại: TỐT) | 100 điểm | 96 điểm |
-
-Ghi chú bổ sung từ thực tế kỳ họp:${extraSection || '
-- Chi bộ duy trì nghiêm túc việc gửi dự thảo báo cáo trước 3 ngày và điểm danh điện tử.'}
-
-                                                     T/M CHI BỘ 26
-                                                        BÍ THƯ
-                                                   Nguyễn Anh Tuấn`,
-
-        KET_LUAN_BI_THU: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
-Số: ………-TB/CB
-
-                                THÔNG BÁO
-        Kết luận của đồng chí Bí thư Chi bộ tại kỳ sinh hoạt tháng ${mm}/${yyyy}
-
-Tại kỳ sinh hoạt Chi bộ định kỳ ngày 03/${mm}/${yyyy}, sau khi nghe báo cáo tình hình hoạt động và ý kiến thảo luận của các đồng chí Đảng viên, đồng chí Nguyễn Anh Tuấn – Bí thư Chi bộ 26 kết luận và giao nhiệm vụ như sau:
-
-1. Về công tác chính trị, tư tưởng và tuyên truyền:
-- Giao đồng chí Đoàn Thị Diệu Hiền – Phó Bí thư Chi bộ tiếp tục đăng tải kịp thời các văn bản chỉ đạo của Đảng ủy Đặc khu Côn Đảo lên Bản tin Chi bộ để 44 Đảng viên nghiên cứu, thực hiện.
-
-2. Về công tác quản lý Đảng viên và thu nộp Đảng phí:
-- Giao đồng chí Phan Kiều Diễm – Chi ủy viên theo dõi, đôn đốc ${totalMembers - paidList.length} đồng chí còn lại hoàn thành nộp Đảng phí tháng ${mm}/${yyyy} qua Cổng TTHC Đảng trước ngày 18/${mm}/${yyyy}.
-- Các Tổ trưởng Tổ Đảng 1, 2, 3, 4 trực tiếp hỗ trợ ${cleanNot} đồng chí chưa làm sạch dữ liệu hoàn thành cập nhật hồ sơ.${extraSection}
-
-3. Tổ chức thực hiện:
-- Toàn thể 44 đồng chí Đảng viên nghiêm túc triển khai thực hiện và báo cáo kết quả tại kỳ sinh hoạt tiếp theo./.
-
-Nơi nhận:                                            T/M CHI BỘ 26
-- Toàn thể Đảng viên Chi bộ 26;                          BÍ THƯ
-- Lưu Chi bộ.                                      Nguyễn Anh Tuấn`,
-
-        NGHI_QUYET_DINH_KY: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
-Số: ………-NQ/CB
-
-                                NGHỊ QUYẾT
-            Lãnh đạo thực hiện nhiệm vụ chính trị tháng ${mm} năm ${yyyy}
-
-Căn cứ Điều lệ Đảng Cộng sản Việt Nam;
-Căn cứ Nghị quyết, Chương trình công tác năm ${yyyy} của Đảng ủy Đặc khu Côn Đảo;
-Căn cứ kết quả hội nghị sinh hoạt Chi bộ 26 ngày 03 tháng ${mm} năm ${yyyy},
-
-                        CHI BỘ 26 QUYẾT NGHỊ:
-
-I. Tán thành đánh giá tình hình thực hiện nhiệm vụ tháng trước và phương hướng nhiệm vụ tháng ${mm}/${yyyy} do Chi ủy trình bày tại hội nghị.
-II. Tập trung lãnh đạo thực hiện các chỉ tiêu, nhiệm vụ trọng tâm tháng ${mm}/${yyyy}:
-1. 100% Đảng viên giữ vững phẩm chất chính trị, gương mẫu chấp hành quy định tại nơi cư trú (Khu dân cư số 3).
-2. Phấn đấu 100% Đảng viên hoàn thành nghĩa vụ đóng Đảng phí tháng ${mm}/${yyyy} đúng hạn và cập nhật đầy đủ trên Sổ tay Đảng viên điện tử.
-3. Hoàn thành công tác rà soát, làm sạch dữ liệu Đảng viên theo tiến độ Đảng ủy Đặc khu giao.${extraSection}
-
-III. Giao Chi ủy Chi bộ 26 tổ chức triển khai, kiểm tra, đôn đốc toàn thể Đảng viên thực hiện thắng lợi Nghị quyết này.
-Nghị quyết đã được Chi bộ 26 biểu quyết thông qua ngày 03/${mm}/${yyyy} với tỷ lệ 100% Đảng viên có mặt tán thành./.
-
-Nơi nhận:                                            T/M CHI BỘ 26
-- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
-- Toàn thể Đảng viên Chi bộ 26;
-- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`,
-
-        NGHI_QUYET_CHUYEN_DE: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM
-CHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}
-Số: ………-NQ/CB
-
-                        NGHỊ QUYẾT SINH HOẠT CHUYÊN ĐỀ
-        Về nâng cao chất lượng sinh hoạt Chi bộ và chuyển đổi số công tác Đảng
-                        tháng ${mm} năm ${yyyy}
-
-Căn cứ Hướng dẫn của Trung ương và Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chuyên đề;
-Qua thảo luận tại buổi sinh hoạt chuyên đề của Chi bộ 26 tháng ${mm}/${yyyy},
-
-                        CHI BỘ 26 QUYẾT NGHỊ:
-
-1. Xác định việc ứng dụng công nghệ số trong quản lý sinh hoạt Chi bộ, điểm danh điện tử, gửi tài liệu nghiên cứu trước 03 ngày và nộp Đảng phí trực tuyến là nhiệm vụ trọng tâm nhằm nâng cao năng lực lãnh đạo của Chi bộ 26.
-2. Yêu cầu mỗi đồng chí Đảng viên chủ động khai thác thông tin trên Bản tin Chi bộ, tích cực tham gia phát biểu xây dựng Nghị quyết.${extraSection}
-3. Giao Chi ủy Chi bộ theo dõi, đánh giá kết quả thực hiện chuyên đề gắn với xếp loại chất lượng Đảng viên cuối năm./.
-
-Nơi nhận:                                            T/M CHI BỘ 26
-- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ
-- Toàn thể Đảng viên Chi bộ 26;
-- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`
+        NGHI_QUYET_CHUYEN_DE: `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO                    ĐẢNG CỘNG SẢN VIỆT NAM\nCHI BỘ 26                                 Đặc khu Côn Đảo, ngày 04 tháng ${mm} năm ${yyyy}\nSố: ………-NQ/CB\n\n                        NGHỊ QUYẾT SINH HOẠT CHUYÊN ĐỀ\n        Về nâng cao chất lượng sinh hoạt Chi bộ và chuyển đổi số công tác Đảng\n                        tháng ${mm} năm ${yyyy}\n\nCăn cứ Hướng dẫn của Trung ương và Đảng ủy Đặc khu Côn Đảo về nâng cao chất lượng sinh hoạt chuyên đề;\nQua thảo luận tại buổi sinh hoạt chuyên đề của Chi bộ 26 tháng ${mm}/${yyyy},\n\n                        CHI BỘ 26 QUYẾT NGHỊ:\n\n1. Xác định việc ứng dụng công nghệ số trong quản lý sinh hoạt Chi bộ, điểm danh điện tử, gửi tài liệu nghiên cứu trước 03 ngày và nộp Đảng phí trực tuyến là nhiệm vụ trọng tâm nhằm nâng cao năng lực lãnh đạo của Chi bộ 26.\n2. Yêu cầu mỗi đồng chí Đảng viên chủ động khai thác thông tin trên Bản tin Chi bộ, tích cực tham gia phát biểu xây dựng Nghị quyết.${extraSection}\n3. Giao Chi ủy Chi bộ theo dõi, đánh giá kết quả thực hiện chuyên đề gắn với xếp loại chất lượng Đảng viên cuối năm./.\n\nNơi nhận:                                            T/M CHI BỘ 26\n- Đảng ủy Đặc khu Côn Đảo (để b/c);                       BÍ THƯ\n- Toàn thể Đảng viên Chi bộ 26;\n- Lưu Chi bộ.                                        Nguyễn Anh Tuấn`
       };
 
       return templates[tpl] || templates.BC_HOAT_DONG_25;
@@ -857,7 +692,7 @@ Nơi nhận:                                            T/M CHI BỘ 26
         </body>
         </html>
       `;
-      const blob = new Blob(['﻿', htmlDoc], { type: 'application/msword' });
+      const blob = new Blob(['\ufeff', htmlDoc], { type: 'application/msword' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -886,7 +721,7 @@ Nơi nhận:                                            T/M CHI BỘ 26
         </body>
         </html>
       `;
-      const blob = new Blob(['﻿', htmlDoc], { type: 'application/msword' });
+      const blob = new Blob(['\ufeff', htmlDoc], { type: 'application/msword' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -1087,12 +922,7 @@ Nơi nhận:                                            T/M CHI BỘ 26
         a.download = post.attachmentName || 'TaiLieu_ChiBo26';
         a.click();
       } else {
-        const text = `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26
-CHUYÊN MỤC: ${post.category.toUpperCase()}
-TIÊU ĐỀ: ${post.title}
-Người đăng: ${post.author} | Thời gian: ${post.postedAt}
-------------------------------------------------------------
-${post.content}`;
+        const text = `ĐẢNG ỦY ĐẶC KHU CÔN ĐẢO - CHI BỘ 26\nCHUYÊN MỤC: ${post.category.toUpperCase()}\nTIÊU ĐỀ: ${post.title}\nNgười đăng: ${post.author} | Thời gian: ${post.postedAt}\n------------------------------------------------------------\n${post.content}`;
         const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -1272,10 +1102,7 @@ ${post.content}`;
         a.download = doc.fileName || 'TaiLieu_ChiBo26';
         a.click();
       } else {
-        const text = `${doc.title.toUpperCase()}
-Đơn vị: Chi bộ 26 - Đảng ủy Đặc khu Côn Đảo
-----------------------------------------
-${doc.contentFull}`;
+        const text = `${doc.title.toUpperCase()}\nĐơn vị: Chi bộ 26 - Đảng ủy Đặc khu Côn Đảo\n----------------------------------------\n${doc.contentFull}`;
         const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
