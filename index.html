@@ -102,8 +102,8 @@
     const PREV_MONTH_STR = String(PREV_DATE.getMonth() + 1).padStart(2, '0');
     const PREV_YEAR = PREV_DATE.getFullYear();
 
-    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V9_FINAL';
-    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V9_FINAL';
+    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V10_FINAL';
+    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V10_FINAL';
 
     const PARTY_FLAG_SVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-lg shadow border-2 border-amber-300 shrink-0">
@@ -289,6 +289,10 @@
         aiUploadedFileName: '',
         aiUploadedImagePreview: '',
         aiGeneratedOutput: '',
+        incomingReports: [
+          { id: 'REP-01', memberId: 'DV01', memberName: 'Trần Tấn Đạt', title: 'Báo cáo kiểm điểm tự đánh giá xếp loại cá nhân năm 2026', submittedAt: '16/11/2026 14:05', status: 'PENDING', fileName: 'BaoCao_KiemDiem_TranTanDat.doc', fileDataUrl: '', rejectReason: '' },
+          { id: 'REP-02', memberId: 'DV02', memberName: 'Trần Văn Hoàng', title: 'Báo cáo kiểm điểm tự đánh giá xếp loại cá nhân năm 2026', submittedAt: '16/11/2026 15:30', status: 'PENDING', fileName: 'BaoCao_KiemDiem_TranVanHoang.doc', fileDataUrl: '', rejectReason: '' }
+        ],
         editingWallPostId: '',
         wallPublishResultBanner: '',
         wallFilter: 'ALL',
@@ -318,6 +322,7 @@
               };
             }
           });
+          if (!parsed.incomingReports) parsed.incomingReports = [];
           return parsed;
         }
         return buildDefaultState();
@@ -417,26 +422,29 @@
 
     function toggleFeeStatusAdmin(targetMemberId) {
       const target = state.members.find(m => m.id === targetMemberId);
-      const admin = state.members.find(m => m.id === currentUserId);
       const rec = getMemberFeeRecord(targetMemberId, REAL_PERIOD_KEY);
       if (rec.paid) {
-        if (!confirm(`Chuyển trạng thái của Đ/c ${target.fullName} về CHƯA NỘP?`)) return;
+        if (!confirm(`Chuyển trạng thái của Đ/c ${target.fullName} về Chưa nộp?`)) return;
         rec.paid = false;
         rec.paidDate = '';
         rec.portalRef = '';
         saveState();
         showToast(`Đã chuyển trạng thái của Đ/c ${target.fullName} về Chưa nộp`);
       } else {
-        submitSelfPartyFee(targetMemberId, targetMemberId !== admin.id);
+        submitSelfPartyFee(targetMemberId, target.id !== currentUserId);
       }
     }
 
     function printFeeSummaryPDF() {
       state.printMode = 'FEE_SUMMARY_PDF';
       render();
-      setTimeout(() => {
-        window.print();
-      }, 200);
+      setTimeout(() => { window.print(); }, 200);
+    }
+
+    function sendQuickFeeMessage(paid, unpaid, totalAmount) {
+      const dateStr = `${String(REAL_DAY).padStart(2,'0')}/${REAL_MONTH_STR}/${REAL_YEAR}`;
+      const msg = `Thông báo chung: Đến thời điểm hiện nay (${dateStr}), Chi bộ 26 đã hoàn thành đóng Đảng phí: ${paid} Đ/c, còn lại ${unpaid} Đ/c chưa hoàn thành (Tổng thu: ${totalAmount}). Chi ủy đề nghị các Đồng chí chưa đóng Đảng phí khẩn trương thực hiện hoàn thành trước ngày 25 để cùng Chi bộ hoàn thành nhiệm vụ theo quy định. Xin cảm ơn. (Danh sách thống kê chi tiết đính kèm bản PDF).`;
+      prompt("Sao chép nhanh nội dung tin nhắn đôn đốc gửi Zalo/Group Chi bộ:", msg);
     }
 
     function handleAiFileUpload(e) {
@@ -553,6 +561,60 @@
       a.click();
       URL.revokeObjectURL(url);
       showToast('Đã tải tệp Word (.doc) về máy!');
+    }
+
+    function submitMemberReport() {
+      const titleInput = document.getElementById('member-report-title');
+      const fileInput = document.getElementById('member-report-file');
+      const user = state.members.find(m => m.id === currentUserId);
+      if (!user) return;
+
+      const title = titleInput ? titleInput.value.trim() : `Báo cáo kiểm điểm cá nhân năm ${REAL_YEAR}`;
+      const fileName = fileInput && fileInput.files[0] ? fileInput.files[0].name : 'BaoCao_KiemDiem_CaNhan.doc';
+
+      const pushReport = (dataUrl) => {
+        state.incomingReports.unshift({
+          id: 'REP-' + Date.now(),
+          memberId: user.id,
+          memberName: user.fullName,
+          title,
+          submittedAt: new Date().toLocaleDateString('vi-VN') + ' ' + new Date().toTimeString().slice(0, 5),
+          status: 'PENDING',
+          fileName,
+          fileDataUrl: dataUrl || '',
+          rejectReason: ''
+        });
+        saveState();
+        showToast('Đã gửi Báo cáo cá nhân về Chi ủy Chi bộ thành công!');
+      };
+
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (ev) => pushReport(ev.target.result);
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        pushReport('');
+      }
+    }
+
+    function reviewMemberReport(repId, decision) {
+      const admin = state.members.find(m => m.id === currentUserId);
+      if (!admin || admin.role !== 'ADMIN') return;
+
+      const rep = state.incomingReports.find(r => r.id === repId);
+      if (!rep) return;
+
+      if (decision === 'REJECTED') {
+        const reason = prompt('Nhập lý do từ chối (để Đảng viên sửa hoàn chỉnh gửi lại):', 'Nội dung chưa đầy đủ theo mẫu, đề nghị bổ sung thêm phần kiểm điểm khuyết điểm.');
+        if (reason === null) return;
+        rep.rejectReason = reason.trim();
+        rep.status = 'REJECTED';
+      } else {
+        rep.status = 'APPROVED';
+        rep.rejectReason = '';
+      }
+      saveState();
+      showToast(decision === 'APPROVED' ? 'Đã duyệt báo cáo thành công!' : 'Đã từ chối và ghi chú lý do trả về cho Đảng viên!');
     }
 
     function publishWallPost(e) {
@@ -1124,7 +1186,7 @@
               </div>
               ${latestInv ? `<div class="text-xs text-slate-500 text-right">Người gửi: <strong>${latestInv.senderName}</strong> (${latestInv.sentAt})</div>` : ''}
             </div>
-            <div class="mt-3 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-slate-800">
+              <div class="mt-3 p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-sm text-slate-800">
               ${latestInv ? latestInv.content : 'Kính mời toàn thể Đảng viên Chi bộ 26 tham dự sinh hoạt định kỳ.'}
             </div>
             <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
@@ -1363,11 +1425,11 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <input type="file" id="member-report-file" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 text-xs bg-white" />
-                  <button type="button" onclick="alert('Đã tải tệp lên hệ thống sẵn sàng gửi!')" class="bg-slate-800 text-white font-bold px-3 py-2 rounded-lg text-xs shrink-0">Tải tệp lên</button>
+                  <button type="button" onclick="submitMemberReport()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-3.5 py-2 rounded-lg text-xs shrink-0 shadow">Tải tệp lên</button>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900">Trạng thái: Đang chờ duyệt</span>
-                  <button type="button" onclick="showToast('Đã gửi báo cáo về Chi ủy Chi bộ 26 thành công!');" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">Gửi Báo cáo</button>
+                  <button type="button" onclick="submitMemberReport()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">Gửi Báo cáo</button>
                 </div>
               </div>
 
@@ -1387,45 +1449,67 @@
             ${isAdmin ? `
               <div class="mt-6 pt-5 border-t-2 border-red-100">
                 <div class="flex items-center gap-2 mb-3">
-                  <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[11px] font-bold uppercase">Admin</span>
-                  <h3 class="text-sm sm:text-base font-bold text-slate-900">Soạn báo cáo tự động từ dữ liệu gốc</h3>
+                  <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[11px] font-bold uppercase">Admin (Tiếp nhận báo cáo từ Đảng viên)</span>
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900">Quản lý duyệt / từ chối báo cáo cá nhân (${state.incomingReports.length})</h3>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
-                  <div class="space-y-3">
-                    <div>
-                      <label class="font-bold block mb-1 text-slate-700">1. Chọn loại văn bản cần lập</label>
-                      <select id="tpl-selector" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
-                        ${templateItems.map(i => `<option value="${i.key}">${i.name}</option>`).join('')}
-                      </select>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2">
+                <div class="space-y-2">
+                  ${state.incomingReports.length === 0 ? `<div class="text-xs text-slate-500 italic p-3 bg-slate-50 rounded">Chưa có báo cáo nào gửi về.</div>` : ''}
+                  ${state.incomingReports.map(rep => `
+                    <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs flex flex-wrap justify-between items-center gap-2">
                       <div>
-                        <label class="font-bold block mb-1 text-slate-700">Tháng</label>
-                        <select id="rpt-month" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
-                          ${Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')).map(m => `<option value="${m}" ${m === mm ? 'selected' : ''}>Tháng ${m}</option>`).join('')}
+                        <span class="font-bold text-slate-900">${rep.memberName}</span> — <em>${rep.title}</em> (${rep.submittedAt})
+                        <div class="text-slate-600 text-[11px] mt-0.5">Tệp: <strong>${rep.fileName}</strong> ${rep.rejectReason ? `• <span class="text-red-700 font-semibold">Lý do từ chối: ${rep.rejectReason}</span>` : ''}</div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded font-bold ${rep.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-800' : (rep.status === 'REJECTED' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-900')}">
+                          ${rep.status === 'APPROVED' ? 'Đã duyệt' : (rep.status === 'REJECTED' ? 'Từ chối' : 'Đang chờ duyệt')}
+                        </span>
+                        <button type="button" onclick="reviewMemberReport('${rep.id}', 'APPROVED')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded shadow">Đọc & Duyệt</button>
+                        <button type="button" onclick="reviewMemberReport('${rep.id}', 'REJECTED')" class="bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded shadow">Từ chối</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-red-200">
+                  <h3 class="text-sm sm:text-base font-bold text-slate-900 mb-2">Soạn báo cáo tự động từ dữ liệu gốc</h3>
+                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="space-y-3">
+                      <div>
+                        <label class="font-bold block mb-1 text-slate-700">1. Chọn loại văn bản</label>
+                        <select id="tpl-selector" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                          ${templateItems.map(i => `<option value="${i.key}">${i.name}</option>`).join('')}
                         </select>
                       </div>
+                      <div class="grid grid-cols-2 gap-2">
+                        <div>
+                          <label class="font-bold block mb-1 text-slate-700">Tháng</label>
+                          <select id="rpt-month" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+                            ${Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')).map(m => `<option value="${m}" ${m === mm ? 'selected' : ''}>Tháng ${m}</option>`).join('')}
+                          </select>
+                        </div>
+                        <div>
+                          <label class="font-bold box-border block mb-1 text-slate-700">Năm</label>
+                          <input id="rpt-year" type="number" value="${yyyy}" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold" />
+                        </div>
+                      </div>
                       <div>
-                        <label class="font-bold block mb-1 text-slate-700">Năm</label>
-                        <input id="rpt-year" type="number" value="${yyyy}" class="w-full border border-slate-300 rounded-lg px-3 py-2 font-semibold" />
+                        <label class="font-bold block mb-1 text-slate-700">2. Tải tệp gốc lên</label>
+                        <input type="file" accept="image/*,.doc,.docx,.txt" onchange="handleAiFileUpload(event)" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
                       </div>
                     </div>
-                    <div>
-                      <label class="font-bold block mb-1 text-slate-700">2. Tải tệp gốc lên</label>
-                      <input type="file" accept="image/*,.doc,.docx,.txt" onchange="handleAiFileUpload(event)" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50" />
-                    </div>
-                  </div>
-                  <div class="lg:col-span-2 flex flex-col justify-between space-y-3">
-                    <div>
-                      <label class="font-bold block mb-1 text-slate-700">3. Dữ liệu thô / Ghi chép:</label>
-                      <textarea id="ai-raw-input" rows="5" placeholder="Nhập ý chính biên bản họp..." class="w-full border border-slate-300 rounded-lg p-3 text-sm">${state.aiRawNotes}</textarea>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-end gap-2">
-                      <button type="button" onclick="runAiDocumentSynthesis()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2 rounded-lg text-xs shadow">✨ Lập báo cáo</button>
-                      ${state.aiGeneratedOutput ? `
-                        <button type="button" onclick="downloadGeneratedWordDoc()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Tải Word (.doc)</button>
-                        <button type="button" onclick="state.printMode='AI_DOC'; render(); setTimeout(()=>window.print(), 150);" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 In PDF</button>
-                      ` : ''}
+                    <div class="lg:col-span-2 flex flex-col justify-between space-y-3">
+                      <div>
+                        <label class="font-bold block mb-1 text-slate-700">3. Dữ liệu thô / Ghi chép:</label>
+                        <textarea id="ai-raw-input" rows="5" placeholder="Nhập ý chính biên bản họp..." class="w-full border border-slate-300 rounded-lg p-3 text-sm">${state.aiRawNotes}</textarea>
+                      </div>
+                      <div class="flex flex-wrap items-center justify-end gap-2">
+                        <button type="button" onclick="runAiDocumentSynthesis()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-5 py-2 rounded-lg text-xs shadow">✨ Lập báo cáo</button>
+                        ${state.aiGeneratedOutput ? `
+                          <button type="button" onclick="downloadGeneratedWordDoc()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">⬇ Tải Word (.doc)</button>
+                          <button type="button" onclick="state.printMode='AI_DOC'; render(); setTimeout(()=>window.print(), 150);" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 In PDF</button>
+                        ` : ''}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1730,7 +1814,7 @@
                         ${isAdmin ? `
                           <td class="p-3 text-right space-x-1">
                             <button onclick="setAttendance('${m.id}', '${activeMeeting.id}', 'PRESENT')" class="px-2 py-1 rounded bg-emerald-600 text-white">Có mặt</button>
-                            <button onclick="setAttendance('${m.id}', '${activeMeeting.id}', 'EXCUSED')" class="px-2 py-1 rounded bg-blue-600 text-white">Có phép</button>
+                            <button onclick="setAttendance('${m.id}', 'EXCUSED')" class="px-2 py-1 rounded bg-blue-600 text-white">Có phép</button>
                           </td>
                         ` : ''}
                       </tr>
@@ -1755,7 +1839,6 @@
       });
       const total = state.members.length;
       const rateP = ((pCount / total) * 100).toFixed(1);
-      const rateE = ((eCount / total) * 100).toFixed(1);
 
       return `
         <div class="space-y-6">
@@ -1770,12 +1853,12 @@
               <div class="text-xl font-bold text-red-700 mt-2">Tỷ lệ: ${rateP}%</div>
               <div class="text-xs text-slate-600 mt-1">Có mặt: ${pCount} • Vắng: ${eCount + uCount} (Bấm xem chi tiết)</div>
             </div>
-            <div onclick="alert('Chi tiết Sinh hoạt chuyên đề: Tỷ lệ tham gia đạt 95.5% (42/44 đồng chí có mặt)')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+            <div onclick="alert('Chi tiết Sinh hoạt chuyên đề: Tỷ lệ tham gia đạt 95.5% (42/44 đồng chí có mặt)')" class="bg-white p-5 rounded-2xl santa bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
               <div class="text-xs font-bold text-slate-500 uppercase">Khung 2: Sinh hoạt chuyên đề</div>
               <div class="text-xl font-bold text-blue-700 mt-2">Tỷ lệ: 95.5%</div>
               <div class="text-xs text-slate-600 mt-1">Đã hoàn thành chỉ tiêu (Bấm xem chi tiết)</div>
             </div>
-            <div onclick="alert('Chi tiết Học tập Nghị quyết: 100% Đảng viên hoàn thành nghiên cứu và kiểm tra trực tuyến)')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
+            <div onclick="alert('Chi tiết Học tập Nghị quyết: 100% Đảng viên hoàn thành nghiên cứu và kiểm tra trực tuyến')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 transition">
               <div class="text-xs font-bold text-slate-500 uppercase">Khung 3: Học tập Nghị quyết</div>
               <div class="text-xl font-bold text-emerald-700 mt-2">Tỷ lệ: 100%</div>
               <div class="text-xs text-slate-600 mt-1">Đạt yêu cầu đợt sinh hoạt (Bấm xem chi tiết)</div>
@@ -1790,15 +1873,9 @@
           <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
             <h3 class="font-bold text-slate-900 text-sm uppercase">📋 Tổng hợp Tiến độ Chuẩn hóa dữ liệu & Chỉ đạo từ Chi ủy</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-semibold">
-              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900">
-                ✓ 26 Đã sạch (${((26/44)*100).toFixed(1)}%)
-              </div>
-              <div class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-900">
-                ⏳ 13 Đang làm (${((13/44)*100).toFixed(1)}%)
-              </div>
-              <div class="p-3 rounded-xl bg-red-50 border border-red-300 text-red-900">
-                ! 5 Chưa làm (${((5/44)*100).toFixed(1)}%)
-              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900">✓ 26 Đã sạch (${((26/44)*100).toFixed(1)}%)</div>
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-900">⏳ 13 Đang làm (${((13/44)*100).toFixed(1)}%)</div>
+              <div class="p-3 rounded-xl bg-red-50 border border-red-300 text-red-900">! 5 Chưa làm (${((5/44)*100).toFixed(1)}%)</div>
             </div>
             <div class="flex items-center gap-2 pt-2">
               <button type="button" onclick="window.print()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-xs shadow">🖨 Đọc danh sách (Xuất bản PDF)</button>
@@ -1817,12 +1894,6 @@
           </div>
         </div>
       `;
-    }
-
-    function sendQuickFeeMessage(paid, unpaid, totalAmount) {
-      const dateStr = `${String(REAL_DAY).padStart(2,'0')}/${REAL_MONTH_STR}/${REAL_YEAR}`;
-      const msg = `Thông báo chung: Đến thời điểm hiện nay (${dateStr}), Chi bộ 26 đã hoàn thành đóng Đảng phí: ${paid} Đ/c, còn lại ${unpaid} Đ/c chưa hoàn thành (Tổng thu: ${totalAmount}). Chi ủy đề nghị các Đồng chí chưa đóng Đảng phí khẩn trương thực hiện hoàn thành trước ngày 25 để cùng Chi bộ hoàn thành nhiệm vụ theo quy định. Xin cảm ơn. (Danh sách thống kê chi tiết đính kèm bản PDF).`;
-      prompt("Sao chép nhanh nội dung tin nhắn đôn đốc gửi Zalo/Group Chi bộ:", msg);
     }
 
     render();
