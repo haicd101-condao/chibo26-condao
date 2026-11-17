@@ -45,19 +45,16 @@
         ctx.strokeRect(18, 18, 476, 476);
 
         ctx.fillStyle = '#facc15';
-        // Vẽ Liềm
         ctx.beginPath();
         ctx.arc(262, 238, 118, -0.35 * Math.PI, 0.72 * Math.PI, false);
         ctx.arc(244, 246, 92, 0.72 * Math.PI, -0.35 * Math.PI, true);
         ctx.closePath();
         ctx.fill();
 
-        // Tay cầm liềm
         ctx.beginPath();
         ctx.arc(170, 344, 20, 0, Math.PI * 2);
         ctx.fill();
 
-        // Vẽ Búa chéo
         ctx.save();
         ctx.translate(256, 256);
         ctx.rotate(-Math.PI / 4);
@@ -108,10 +105,9 @@
     const PREV_MONTH_STR = String(PREV_DATE.getMonth() + 1).padStart(2, '0');
     const PREV_YEAR = PREV_DATE.getFullYear();
 
-    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V7_FINAL';
-    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V7_FINAL';
+    const STORAGE_KEY = 'CHIBO26_CONDAO_APP_DATA_V8_FINAL';
+    const USER_SESSION_KEY = 'CHIBO26_CURRENT_USER_ID_V8_FINAL';
 
-    // SVG Lá cờ Đảng (Búa và Liềm vàng trên nền đỏ) hiển thị kề bên tên trang
     const PARTY_FLAG_SVG = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-lg shadow border-2 border-amber-300 shrink-0">
         <rect width="64" height="64" rx="10" fill="#dc2626"/>
@@ -302,7 +298,7 @@
         viewingDocId: '',
         searchQuery: '',
         filterGroup: 'ALL',
-        printMode: 'AI_DOC', // 'AI_DOC' hoặc 'FEE_SUMMARY_PDF'
+        printMode: 'AI_DOC',
         lastSyncTime: `${String(REAL_DAY).padStart(2,'0')}/${REAL_MONTH_STR}/${REAL_YEAR} ${String(NOW.getHours()).padStart(2,'0')}:${String(NOW.getMinutes()).padStart(2,'0')}`
       };
     }
@@ -378,9 +374,6 @@
       return `${dd}/${mm}/${yyyy} lúc ${hh}:${min}:${ss}`;
     }
 
-    // ============================================================================
-    // 2. XỬ LÝ ĐẢNG PHÍ THÁNG X (THỜI GIAN THỰC) & XUẤT PDF ĐÔN ĐỐC
-    // ============================================================================
     function getMemberFeeRecord(memberId, periodKey = REAL_PERIOD_KEY) {
       const m = state.members.find(x => x.id === memberId);
       if (!state.fees[memberId]) state.fees[memberId] = {};
@@ -449,9 +442,6 @@
       }, 200);
     }
 
-    // ============================================================================
-    // 3. XỬ LÝ LẬP BÁO CÁO & BIỂU MẪU (PHÂN QUYỀN 3 ADMIN GIỐNG NHAU + ĐẢNG VIÊN TẢI MẪU)
-    // ============================================================================
     function handleAiFileUpload(e) {
       const file = e.target.files[0];
       if (!file) return;
@@ -539,7 +529,6 @@
       showToast('Đã lập báo cáo chuẩn thể thức văn bản Đảng!');
     }
 
-    // Dành cho cả Đảng viên thường và Admin bấm nút "Tải biểu mẫu" trực tiếp
     function downloadTemplateForm(tplKey) {
       const mm = state.reportTargetMonth || REAL_MONTH_STR;
       const yyyy = state.reportTargetYear || String(REAL_YEAR);
@@ -569,9 +558,6 @@
       showToast('Đã tải tệp Word (.doc) về máy!');
     }
 
-    // ============================================================================
-    // 4. XỬ LÝ BẢN TIN CHI BỘ (ĐĂNG, REFRESH THU HỒI CHỈNH SỬA, THÔNG BÁO THỜI GIAN)
-    // ============================================================================
     function publishWallPost(e) {
       e.preventDefault();
       const admin = state.members.find(m => m.id === currentUserId);
@@ -590,7 +576,6 @@
 
       const finalizePost = (imageUrl, attachmentName, attachmentDataUrl) => {
         if (state.editingWallPostId) {
-          // Cập nhật bài đang thu hồi chỉnh sửa
           const idx = state.wallPosts.findIndex(p => p.id === state.editingWallPostId);
           if (idx !== -1) {
             state.wallPosts[idx] = {
@@ -648,7 +633,6 @@
       }
     }
 
-    // Nút Refresh kế bên nút Đăng: Thu hồi bài vừa đăng hoặc chọn bài để đưa lại vào khung chỉnh sửa / làm mới form
     function refreshRecallWallForm() {
       if (state.editingWallPostId) {
         state.editingWallPostId = '';
@@ -731,9 +715,6 @@
       showToast('Đã xóa bài đăng!');
     }
 
-    // ============================================================================
-    // 5. CÁC HÀM TƯƠNG TÁC ĐIỂM DANH, BÁO VẮNG, TÀI LIỆU & ĐĂNG NHẬP
-    // ============================================================================
     function handleLogin(e) {
       e.preventDefault();
       const id = document.getElementById('login-user').value;
@@ -955,9 +936,6 @@
       showToast('Đã xuất gói dữ liệu liên thông JSON!');
     }
 
-    // ============================================================================
-    // 6. GIAO DIỆN HIỂN THỊ CHÍNH
-    // ============================================================================
     function renderLogin() {
       const admins = state.members.filter(m => m.role === 'ADMIN');
       const members = state.members.filter(m => m.role === 'MEMBER');
@@ -1487,7 +1465,6 @@
     function renderFees(user, isAdmin, paidCount, totalFeeCollected) {
       const myRec = getMemberFeeRecord(user.id, REAL_PERIOD_KEY);
 
-      // Giao diện dành riêng cho Đảng viên thường (Không hiển thị danh sách 43 người khác)
       if (!isAdmin) {
         return `
           <div class="space-y-6">
@@ -1534,7 +1511,6 @@
         `;
       }
 
-      // Giao diện dành cho 03 Admin Chi ủy (Xem toàn bộ 44 Đảng viên + Xuất gói JSON + Xuất PDF đôn đốc)
       return `
         <div class="space-y-6">
           <div class="bg-gradient-to-r from-red-900 to-red-800 text-white rounded-xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4 no-print">
@@ -1600,7 +1576,6 @@
             </div>
           </div>
 
-          <!-- BẢN IN PDF THỐNG KÊ TÌNH HÌNH NỘP ĐẢNG PHÍ GỬI ĐÔN ĐỐC ĐẢNG VIÊN -->
           <div id="print-area" class="bg-white p-8 rounded-xl shadow border border-slate-300 max-w-4xl mx-auto font-serif-vn text-slate-900 text-xs sm:text-sm">
             <div class="flex justify-between items-start text-center mb-5">
               <div>
@@ -1790,59 +1765,6 @@
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderMembers(isAdmin, cleanDone, cleanDoing, cleanNot) {
-      const q = state.searchQuery.toLowerCase();
-      const filtered = state.members.filter(m => {
-        const matchQ = m.fullName.toLowerCase().includes(q) || m.id.toLowerCase().includes(q);
-        const matchG = state.filterGroup === 'ALL' || m.partyGroup === state.filterGroup;
-        return matchQ && matchG;
-      });
-      return `
-        <div class="space-y-4">
-          <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-3">
-            <div class="flex flex-wrap gap-2">
-              <input type="text" value="${state.searchQuery}" oninput="state.searchQuery=this.value; render();" placeholder="Tìm tên Đảng viên..." class="border border-slate-300 rounded-lg px-3 py-2 text-xs w-52" />
-              <select onchange="state.filterGroup=this.value; render();" class="border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold">
-                <option value="ALL">Tất cả (44 ĐV)</option>
-                <option value="Chi ủy">Chi ủy (03 Admin)</option>
-                <option value="Tổ Đảng 1">Tổ Đảng 1</option>
-                <option value="Tổ Đảng 2">Tổ Đảng 2</option>
-                <option value="Tổ Đảng 3">Tổ Đảng 3</option>
-                <option value="Tổ Đảng 4">Tổ Đảng 4</option>
-              </select>
-            </div>
-            <div class="text-xs">Làm sạch dữ liệu: <strong class="text-emerald-700">${cleanDone} Đã sạch</strong> • <strong class="text-amber-700">${cleanDoing} Đang làm</strong> • <strong class="text-red-700">${cleanNot} Chưa làm</strong></div>
-          </div>
-          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto">
-            <table class="w-full text-left border-collapse text-xs">
-              <thead>
-                <tr class="bg-slate-100 border-b border-slate-200">
-                  <th class="p-3">STT</th>
-                  <th class="p-3">Mã / Số thẻ</th>
-                  <th class="p-3">Họ và tên</th>
-                  <th class="p-3">Chức vụ / Tổ Đảng</th>
-                  <th class="p-3">Chuẩn hóa dữ liệu</th>
-                  ${isAdmin ? '<th class="p-3 text-right">Cập nhật</th>' : ''}
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100">
-                ${filtered.map(m => `
-                  <tr>
-                    <td class="p-3">${m.stt}</td>
-                    <td class="p-3 font-mono">${m.id} • ${m.cardNumber}</td>
-                    <td class="p-3 font-bold">${m.fullName} ${m.role === 'ADMIN' ? '<span class="px-1.5 py-0.5 text-[10px] bg-red-700 text-white rounded">ADMIN</span>' : ''}</td>
-                    <td class="p-3">${m.position} (${m.partyGroup})</td>
-                    <td class="p-3"><span class="px-2 py-0.5 rounded font-bold ${m.cleanStatus === 'Đã làm sạch' ? 'bg-emerald-100 text-emerald-800' : (m.cleanStatus === 'Đang làm sạch' ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800')}">${m.cleanStatus}</span></td>
-                    ${isAdmin ? `<td class="p-3 text-right"><button onclick="toggleCleanStatus('${m.id}')" class="border border-slate-300 px-2.5 py-1 rounded font-semibold">Đổi trạng thái</button></td>` : ''}
-                  </tr>
-                `).join('')}
-              </tbody>
-            </table>
           </div>
         </div>
       `;
